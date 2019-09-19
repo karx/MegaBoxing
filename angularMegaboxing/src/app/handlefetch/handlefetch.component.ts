@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-handlefetch',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HandlefetchComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  public kaaroFunction() {
+    console.log("Kasdkatjskdasd");
+    // alert("Kartik");
+    this.router.navigateByUrl('vend');
+  }
 }

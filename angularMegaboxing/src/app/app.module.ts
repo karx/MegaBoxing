@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HandlefetchComponent } from './handlefetch/handlefetch.component';
+import { VendingComponent } from './vending/vending.component';
+import { FinalComponent } from './final/final.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    HandlefetchComponent
+    HandlefetchComponent,
+    VendingComponent,
+    FinalComponent
   ],
   imports: [
     BrowserModule,
