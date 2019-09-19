@@ -7,7 +7,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HandlefetchComponent } from './handlefetch/handlefetch.component';
 import { VendingComponent } from './vending/vending.component';
 import { FinalComponent } from './final/final.component';
-
+import {FormsModule} from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { FinalComponent } from './final/final.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,7 @@ const routes: Routes = [
     component: HandlefetchComponent
   },
   {
-    path: 'vend',
+    path: 'vend/:handle',
     component: VendingComponent
   },
   {

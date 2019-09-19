@@ -16,11 +16,11 @@
                   <div class="input-group-prepend">
                     <img src="/assets/img/ig-logo-email.png" alt="">
                   </div>
-                  <input type="text" class="form-control my-auto pl-lg-3 pl-md-3" placeholder="ENTER YOUR INSTAGRAM USERNAME HERE">
+                  <input type="text" [(ngModel)]="handle"   [ngModelOptions]="{standalone: true}" class="form-control my-auto pl-lg-3 pl-md-3" placeholder="ENTER YOUR INSTAGRAM USERNAME HERE">
                 </div>
               </div>
               <div class="footer text-center">
-                <a (click)="kaaroFunction()" class="btn btn-danger btn-lg btn-wd">Submit</a>
+                <a (click)="kaaroFunction(handle)" class="btn btn-danger btn-lg btn-wd">Submit</a>
               </div>
             </form>
           </div>

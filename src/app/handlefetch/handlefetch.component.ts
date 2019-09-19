@@ -16,9 +16,9 @@ export class HandlefetchComponent implements OnInit {
   ngOnInit() {
   }
 
-  public kaaroFunction() {
+  public kaaroFunction(handle) {
     console.log("Kasdkatjskdasd");
     // alert("Kartik");
-    this.router.navigateByUrl('vend');
+    this.router.navigate(['vend', handle]);
   }
 }
