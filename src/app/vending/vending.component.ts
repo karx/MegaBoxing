@@ -80,9 +80,6 @@ export class VendingComponent implements OnInit {
   }
 
   processVend(toFullfillPost){
-    this.http.get(
-      'http://red.akriya.co.in/kaaroDespense'
-    ).subscribe(x => console.log);
 
     let iFrameHtml = `
         <iframe src="https://www.instagram.com/p/${toFullFill.shortcode}/embed/captioned" width="470" height="400" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
