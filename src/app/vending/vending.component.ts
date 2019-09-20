@@ -88,9 +88,12 @@ export class VendingComponent implements OnInit {
     ).toPromise()
       .then( (value: any) => {
         console.log("value aa gai: ", value);
+        let updatedValue = value.html.substring(0, (value.html.length-58));
+
+        
         this.ig_data = `<div class="col-lg-5 col-md-5 ml-auto mr-auto">
         <div class="card">
-        ${value.html}
+        ${updatedValue}
         </div>
       </div>
       <div class="col-lg-6 col-md-6 ml-auto mr-auto">
