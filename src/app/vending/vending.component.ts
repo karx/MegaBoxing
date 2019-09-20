@@ -75,9 +75,9 @@ export class VendingComponent implements OnInit {
     this.getEmbedForInstagram(toFullfill);
   }
 
-  getEmbedForInstagram(toFullfill) {
+  getEmbedForInstagram(toFullFill) {
     this.http.get(
-      `https://api.instagram.com/oembed/?url=http://instagr.am/p/${toFullfill.shortcode}`
+      `https://api.instagram.com/oembed/?url=http://instagr.am/p/${toFullFill.shortcode}`
     ).toPromise()
       .then( (value: any) => {
         console.log("value aa gai: ", value);
