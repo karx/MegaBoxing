@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -75,7 +76,25 @@ export class VendingComponent implements OnInit {
     this.db.collection('boxwinner').doc(toFullfill.id).update({
       fullfilled: true
     });
-    this.getEmbedForInstagram(toFullfill);
+    this.processVend(toFullfill);
+  }
+
+  processVend(toFullfillPost){
+    this.http.get(`https://red.akriya.co.in/kaaroDespense`).subscribe((res)=>{
+      console.log(res);
+  });
+    this.http.get(
+      `https://red.akriya.co.in/kaaroDespense`
+    ).toPromise()
+    .then((value: any) => {
+      
+      let iFrameHtml = `
+        <iframe src="https://www.instagram.com/p/${toFullFill.shortcode}/embed/captioned" width="470" height="400" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
+        `;
+        this.iFrameVal = this.sanitized.bypassSecurityTrustHtml(iFrameHtml);
+        this.vendStatus = 'Success';
+    });
+
   }
 
   getEmbedForInstagram(toFullFill) {
