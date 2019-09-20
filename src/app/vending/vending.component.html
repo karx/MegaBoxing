@@ -1,7 +1,34 @@
 <div class="page-header header-filter"
   style="background-image: url('./assets/img/bg.png'); background-size: cover; background-position: top center;">
   <div class="container">
-    <div class="row" [innerHTML]= "ig_data">
+    <div class="row" *ngIf="vendStatus === 'Success'">
+      <div class="col-lg-5 col-md-5 ml-auto mr-auto">
+        <div class="card" innerHTML=[updatedStantizedValue]>
+        
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+        <div class="info">
+          <img class="d-block" src="./assets/img/main-logo.png">
+
+          <h1 class="info-title">CONGRATULATIONS!</h1>
+          <h3>Your gift is being vended now.Please collect it from the machine.</h3>
+        </div>
+      </div>
+    
+    </div>
+    <div class="row" *ngIf="vendStatus === 'Fail'">
+      <div class="col-lg-8 col-md-8 ml-auto mr-auto">
+        <div>
+                <img class = "mx-auto d-block" src="./assets/img/main-logo.png">
+
+                <h1 class="info-title mx-auto text-center">UH OH!<br>NO POSTS FOUND WITH THAT USERNAME</h1>
+                <h3 class="text-center">You are being redirected, Please Wait...</h3>
+        </div>
+  </div>
+    </div>
+    <div class="row" *ngIf="vendStatus === 'Loading'">
+      Loading
     </div>
   </div>
 </div>
