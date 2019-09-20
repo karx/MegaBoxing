@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vending',
@@ -19,7 +20,8 @@ export class VendingComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private db: AngularFirestore,
-    private http: HttpClient
+    private http: HttpClient,
+    private sanitized: DomSanitizer
   ) {
     this.ig_data = '';
   }
@@ -94,7 +96,7 @@ export class VendingComponent implements OnInit {
 
         this.ig_data = `<div class="col-lg-5 col-md-5 ml-auto mr-auto">
         <div class="card">
-        ${updatedValue}
+        ${this.sanitized.bypassSecurityTrustHtml(updatedValue)}
         </div>
       </div>
       <div class="col-lg-6 col-md-6 ml-auto mr-auto">
