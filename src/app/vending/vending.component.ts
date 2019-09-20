@@ -76,16 +76,10 @@ export class VendingComponent implements OnInit {
     this.db.collection('boxwinner').doc(toFullfill.id).update({
       fullfilled: true
     });
-    this.processVend(toFullfill);
+    this.getEmbedForInstagram(toFullfill);
   }
 
   processVend(toFullfillPost){
-
-    let iFrameHtml = `
-        <iframe src="https://www.instagram.com/p/${toFullFill.shortcode}/embed/captioned" width="470" height="400" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
-        `;
-        this.iFrameVal = this.sanitized.bypassSecurityTrustHtml(iFrameHtml);
-        this.vendStatus = 'Success';
 
   }
 
