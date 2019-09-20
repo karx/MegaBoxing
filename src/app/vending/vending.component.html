@@ -1,20 +1,7 @@
 <div class="page-header header-filter"
   style="background-image: url('./assets/img/bg.png'); background-size: cover; background-position: top center;">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-5 ml-auto mr-auto">
-        <div class="card" [innerHTML]="ig_data">
-
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-        <div class="info">
-          <img class="d-block" src="./assets/img/main-logo.png">
-
-          <h1 class="info-title">CONGRATULATIONS!</h1>
-          <h3>Your gift is being vended now.Please collect it from the machine.</h3>
-        </div>
-      </div>
+    <div class="row" [innerHTML]= "ig_data">
     </div>
   </div>
 </div>
