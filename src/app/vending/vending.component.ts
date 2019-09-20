@@ -90,7 +90,8 @@ export class VendingComponent implements OnInit {
         console.log("value aa gai: ", value);
         let updatedValue = value.html.substring(0, (value.html.length-58));
 
-        
+        console.log("updated value:  ", updatedValue);
+
         this.ig_data = `<div class="col-lg-5 col-md-5 ml-auto mr-auto">
         <div class="card">
         ${updatedValue}
