@@ -80,20 +80,15 @@ export class VendingComponent implements OnInit {
   }
 
   processVend(toFullfillPost){
-    this.http.get(`https://red.akriya.co.in/kaaroDespense`).subscribe((res)=>{
-      console.log(res);
-  });
     this.http.get(
-      `https://red.akriya.co.in/kaaroDespense`
-    ).toPromise()
-    .then((value: any) => {
-      
-      let iFrameHtml = `
+      'http://red.akriya.co.in/kaaroDespense'
+    ).subscribe(x => console.log);
+
+    let iFrameHtml = `
         <iframe src="https://www.instagram.com/p/${toFullFill.shortcode}/embed/captioned" width="470" height="400" frameborder="0" scrolling="yes" allowtransparency="true"></iframe>
         `;
         this.iFrameVal = this.sanitized.bypassSecurityTrustHtml(iFrameHtml);
         this.vendStatus = 'Success';
-    });
 
   }
 
