@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row" *ngIf="vendStatus === 'Success'">
       <div class="col-lg-5 col-md-5 ml-auto mr-auto">
-        <div class="card" innerHTML=[updatedStantizedValue]>
+        <div class="card" [innerHTML]="updatedStantizedValue">
         
         </div>
       </div>
