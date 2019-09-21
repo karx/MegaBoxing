@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCibqKS2OXoCQwQrnGlrGBMP9MeHE1nfAI",
-    authDomain: "social-cafe-f17da.firebaseapp.com",
-    databaseURL: "https://social-cafe-f17da.firebaseio.com",
-    projectId: "social-cafe-f17da",
-    storageBucket: "social-cafe-f17da.appspot.com",
-    messagingSenderId: "295928880243",
-    appId: "1:295928880243:web:1af2380a38c2adaaa41e06"
+    apiKey: "AIzaSyBHkf5KvL6qWR6sn1UDLPR3YprhGSoZ-5M",
+    authDomain: "megaboxing-1.firebaseapp.com",
+    databaseURL: "https://megaboxing-1.firebaseio.com",
+    projectId: "megaboxing-1",
+    storageBucket: "megaboxing-1.appspot.com",
+    messagingSenderId: "121261211137",
+    appId: "1:121261211137:web:d771077b1e97f713b18a00"
   }
 };
 
