@@ -23,7 +23,7 @@ import {
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: 'bot.akriya.co.in',
-  port: 8883,
+  port: 1883,
   path: '/'
 };
 
