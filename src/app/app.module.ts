@@ -22,7 +22,7 @@ import {
 } from 'ngx-mqtt';
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'bot.akriya.co.in',
+  hostname: 'http://bot.akriya.co.in/',
   port: 1883,
   path: '/'
 };
