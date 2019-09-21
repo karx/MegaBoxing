@@ -13,6 +13,9 @@
 
           <h1 class="info-title">CONGRATULATIONS!</h1>
           <h3>Your gift is being vended now.Please collect it from the machine.</h3>
+          <div class="footer text-center">
+                <a routerLink="/" class="btn btn-danger btn-lg btn-wd">Collected!</a>
+              </div>
         </div>
       </div>
     
@@ -23,12 +26,16 @@
                 <img class = "mx-auto d-block" src="./assets/img/main-logo.png">
 
                 <h1 class="info-title mx-auto text-center">UH OH!<br>NO POSTS FOUND WITH THAT USERNAME</h1>
-                <h3 class="text-center">You are being redirected, Please Wait...</h3>
+                <h3 class="text-center">To restart, please click below.</h3>
+
+                <div class="footer text-center">
+                <a routerLink="/" class="btn btn-danger btn-lg btn-wd">Restart</a>
+              </div>
         </div>
   </div>
     </div>
     <div class="row" *ngIf="vendStatus === 'Loading'">
-      Loading
+      <h1 class="info-title mx-auto text-center">Loading...</h1>
     </div>
   </div>
 </div>
