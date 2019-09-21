@@ -40,9 +40,6 @@ export class VendingComponent implements OnInit {
     private _mqttService: MqttService,
   ) {
     this.ig_data = '';
-    this.subscription = this._mqttService.observe('VMC/1035/VEND_ORDER_ITEM').subscribe((message: IMqttMessage) => {
-      this.message = message.payload.toString();
-    });
   }
 
   ngOnInit() {
