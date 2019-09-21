@@ -13,6 +13,20 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
+
+import {
+  IMqttMessage,
+  MqttModule,
+  IMqttServiceOptions
+} from 'ngx-mqtt';
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'bot.akriya.co.in',
+  port: 1883,
+  path: '/'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
   ],
   providers: [],
   bootstrap: [AppComponent]
