@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Howl } from 'howler';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class VendingComponent implements OnInit {
   handle: any;
   ig_data: any;
   updatedStantizedValue: any;
+  soundOnSuccess: Howl;
+  soundOnFailure: Howl;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +29,16 @@ export class VendingComponent implements OnInit {
     private sanitized: DomSanitizer
   ) {
     this.ig_data = '';
+    this.soundOnSuccess = new Howl({
+      src: ['../../assets/sounds/InspirationalSuccess.wav'],
+      html5: true
+    });
+    this.soundOnFailure = new Howl({
+      src: ['../../assets/sounds/GameFail02.wav'],
+      html5: true
+    });
+
+
   }
 
   ngOnInit() {
@@ -55,6 +68,8 @@ export class VendingComponent implements OnInit {
             if (postsToFullFull.length < 1) {
               console.log('No posts');
               this.vendStatus = 'Fail';
+              this.soundOnFailure.play();
+
               this.pubToMqtt();
             } else {
               console.log(postsToFullFull[0]);
@@ -72,6 +87,7 @@ export class VendingComponent implements OnInit {
   }
 
   fullfillPost(toFullfill) {
+    this.soundOnSuccess.play();
     this.db.collection('boxwinner').doc(toFullfill.id).update({
       fullfilled: true
     });

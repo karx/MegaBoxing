@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 import { ViewEncapsulation } from '@angular/core';
+import { Howl } from 'howler';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -16,10 +17,22 @@ export class HandlefetchComponent implements OnInit {
   keyboard: Keyboard;
   value = '';
   handle = '';
-
+  soundWhenWeStartLoading: Howl;
   constructor(
     private router: Router
-  ) { }
+  ) {
+    var soundOnUserEntry = new Howl({
+      src: ['../../assets/sounds/loop01.wav'],
+      html5: true
+    });
+    this.soundWhenWeStartLoading = new Howl({
+      src: ['../../assets/sounds/GameFailure.wav'],
+      html5: true
+    });
+
+
+    soundOnUserEntry.play();
+  }
 
   ngOnInit() {
   }
@@ -94,6 +107,7 @@ export class HandlefetchComponent implements OnInit {
   public kaaroFunction(handle) {
     console.log("Kasdkatjskdasd");
     // alert("Kartik");
+    this.soundWhenWeStartLoading.play();
     this.router.navigate(['vend', this.value]);
   }
 }
