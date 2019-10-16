@@ -6,7 +6,7 @@ import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
-    selector: 'app-handlefetch',
+  selector: 'app-handlefetch',
   templateUrl: './handlefetch.component.html',
   styleUrls: [
     './handlefetch.component.scss'
@@ -27,7 +27,39 @@ export class HandlefetchComponent implements OnInit {
   ngAfterViewInit() {
     this.keyboard = new Keyboard({
       onChange: input => this.onChange(input),
-      onKeyPress: button => this.onKeyPress(button)
+      onKeyPress: button => this.onKeyPress(button),
+      layout: {
+        default: [
+          "1 2 3 4 5 6 7 8 9 0",
+          "q w e r t y u i o p",
+          "a s d f g h j k l",
+          "{shift} z x c v b n m {backspace}",
+
+        ],
+        shift: [
+          "! @ # $ % ^ & * ( ) _ +",
+          "Q W E R T Y U I O P",
+          "A S D F G H J K L",
+          "{shift} Z X C V B N M {backspace}",
+        ],
+        numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"]
+      },
+      display: {
+        "{numbers}": "123",
+        "{ent}": "return",
+        "{escape}": "esc ⎋",
+        "{tab}": "tab ⇥",
+        "{backspace}": "⌫",
+        "{capslock}": "caps lock ⇪",
+        "{shift}": "⇧",
+        "{controlleft}": "ctrl ⌃",
+        "{controlright}": "ctrl ⌃",
+        "{altleft}": "alt ⌥",
+        "{altright}": "alt ⌥",
+        "{metaleft}": "cmd ⌘",
+        "{metaright}": "cmd ⌘",
+        "{abc}": "ABC"
+      }
     });
   }
 
