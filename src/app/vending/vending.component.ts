@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { HttpClient,  HttpParams } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-vending',
@@ -54,6 +55,7 @@ export class VendingComponent implements OnInit {
             if (postsToFullFull.length < 1) {
               console.log('No posts');
               this.vendStatus = 'Fail';
+              this.pubToMqtt();
             } else {
               console.log(postsToFullFull[0]);
               this.fullfillPost(postsToFullFull[0]);
@@ -74,15 +76,42 @@ export class VendingComponent implements OnInit {
       fullfilled: true
     });
     this.getEmbedForInstagram(toFullfill);
+    this.pubToMqtt();
   }
+  pubToMqtt() {
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type':  'application/json',
+    //     'Authorization': 'Basic ' + btoa('kaaro:kartik14')
+    //   })
+    // };
+    // const params = new HttpParams()
+    // .set('topic', 'kaaro/wendor')
+    // .set('payload', '1')
+    // .set('client_id', 'megaboxing_client_machine');
+
+    // this.http.post(
+    //   'http://api.akriya.co.in:18083/api/v2/mqtt/publish', {
+    //     headers: httpOptions
+    //   },
+    //   {params}
+    // ).subscribe( (result) => {
+    //   console.log(result);
+    // });
+
+    this.http.get(
+      'http://red.akriya.co.in/kaaroDespense'
+    ).subscribe(x => console.log);
+  }
+
 
   getEmbedForInstagram(toFullFill) {
     this.http.get(
       `https://api.instagram.com/oembed/?url=http://instagr.am/p/${toFullFill.shortcode}`
     ).toPromise()
-      .then( (value: any) => {
+      .then((value: any) => {
         console.log("value aa gai: ", value);
-        let updatedValue = value.html.substring(0, (value.html.length-58));
+        let updatedValue = value.html.substring(0, (value.html.length - 58));
 
         console.log("updated value:  ", updatedValue);
         this.updatedStantizedValue = this.sanitized.bypassSecurityTrustHtml(value.html);
