@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { filter } from 'rxjs/operators';
-import { HttpClient,  HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Howl } from 'howler';
 
@@ -34,7 +34,7 @@ export class VendingComponent implements OnInit {
       html5: true
     });
     this.soundOnFailure = new Howl({
-      src: ['../../assets/sounds/GameFail02.wav'],
+      src: ['../../assets/sounds/GameFailure.wav'],
       html5: true
     });
 
@@ -46,46 +46,52 @@ export class VendingComponent implements OnInit {
       filter(params => params.handle)
     )
       .subscribe(params => {
-        console.log(params); // {handle: "popular"}
-
-        this.handle = params.handle;
-        console.log(this.handle); // popular
-        const toBeFullfilled = this.db.collection('boxwinner',
-          ref => ref.where('owner_username', '==', this.handle));
-        toBeFullfilled.get()
-          .subscribe((val) => {
-            console.log("In side fullfilled value: ", val);
-
-            let postsToFullFull = [];
-
-            val.forEach((doc) => {
-              console.log(doc.data());
-              if (!doc.data().fullfilled) {
-                postsToFullFull.push(doc.data());
-              }
-            });
-
-            if (postsToFullFull.length < 1) {
-              console.log('No posts');
-              this.vendStatus = 'Fail';
-              this.soundOnFailure.play();
-
-              this.pubToMqtt();
-            } else {
-              console.log(postsToFullFull[0]);
-              this.fullfillPost(postsToFullFull[0]);
-            }
-          });
-
+        setTimeout(
+          () => this.whenPostDetailsComesFromInstagram(params), 3500
+        );
+        // this.whenPostDetailsComesFromInstagram(params);
       });
 
-    // setTimeout(
-    //   () => {
-    //     this.navigateNext();
-    //   }, 10000
-    // );
+    setTimeout(
+      () => {
+        this.navigateNext();
+      }, 10000
+    );
   }
 
+
+  whenPostDetailsComesFromInstagram(params: any) {
+    console.log(params); // {handle: "popular"}
+
+    this.handle = params.handle;
+    console.log(this.handle); // popular
+    const toBeFullfilled = this.db.collection('boxwinner',
+      ref => ref.where('owner_username', '==', this.handle));
+    toBeFullfilled.get()
+      .subscribe((val) => {
+        console.log("In side fullfilled value: ", val);
+
+        let postsToFullFull = [];
+
+        val.forEach((doc) => {
+          console.log(doc.data());
+          if (!doc.data().fullfilled) {
+            postsToFullFull.push(doc.data());
+          }
+        });
+
+        if (postsToFullFull.length < 1) {
+          console.log('No posts');
+          this.vendStatus = 'Fail';
+          this.soundOnFailure.play();
+
+          this.pubToMqtt();
+        } else {
+          console.log(postsToFullFull[0]);
+          this.fullfillPost(postsToFullFull[0]);
+        }
+      });
+  }
   fullfillPost(toFullfill) {
     this.soundOnSuccess.play();
     this.db.collection('boxwinner').doc(toFullfill.id).update({

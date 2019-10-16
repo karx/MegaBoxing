@@ -22,11 +22,11 @@ export class HandlefetchComponent implements OnInit {
     private router: Router
   ) {
     var soundOnUserEntry = new Howl({
-      src: ['../../assets/sounds/loop01.wav'],
+      src: ['../../assets/sounds/GameFail02.wav'],
       html5: true
     });
     this.soundWhenWeStartLoading = new Howl({
-      src: ['../../assets/sounds/GameFailure.wav'],
+      src: ['../../assets/sounds/loop01.wav'],
       html5: true
     });
 
