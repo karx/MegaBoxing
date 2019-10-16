@@ -12,7 +12,7 @@ const routes: Routes = [
     component: WelcomeComponent
   },
   {
-    path: 'handle',
+    path: 'push',
     component: HandlefetchComponent
   },
   {
