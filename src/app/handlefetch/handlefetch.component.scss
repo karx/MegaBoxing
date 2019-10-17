@@ -2,3 +2,10 @@
 .simple-keyboard {
   z-index: 1000;
 }
+.simple-keyboard.hg-theme-default .hg-button{
+  font-weight: 900;
+  font-size: 1.7em;
+  height:70px;
+  color: #555;
+  margin:4px;
+}
