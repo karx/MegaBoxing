@@ -19,12 +19,11 @@
                 <input type="text" [(ngModel)]="handle" [ngModelOptions]="{standalone: true}"
                   class="form-control my-auto pl-lg-3 pl-md-3" placeholder="ENTER YOUR INSTAGRAM USERNAME HERE"
                   disabled>
+                  <a (click)="kaaroFunction(handle)" class="btn btn-danger btn-lg btn-wd">Submit</a>
+
               </div>
             </div>
             <div class="simple-keyboard"></div>
-            <div class="footer text-center">
-              <a (click)="kaaroFunction(handle)" class="btn btn-danger btn-lg btn-wd">Submit</a>
-            </div>
           </form>
         </div>
         <div class="text-center">
