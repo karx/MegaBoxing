@@ -1,6 +1,9 @@
 @import '../../../node_modules/simple-keyboard/build/css/index';
 .simple-keyboard {
   z-index: 1000;
+  bottom: 0px;
+  position:fixed;
+
 }
 .simple-keyboard.hg-theme-default .hg-button{
   font-weight: 900;
@@ -8,4 +11,30 @@
   height:70px;
   color: #555;
   margin:4px;
+}
+.my-auto{
+  border: solid 3px #666;
+  border-radius: 50px;
+  padding: 30px 30px;
+  font-weight: 800;
+  max-width: 80%;
+  float:left;
+  font-size: 2em;
+  text-align: center;
+}
+.submit-button{
+  border-radius: 50px;
+  color:#fff !important;
+  padding: 16px 10px;
+   font-weight: 800;
+   font-size: 1.2em;
+   width : 18%;
+   text-align: center;
+}
+
+.my-auto::placeholder{
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: -10px;
 }
