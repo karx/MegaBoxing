@@ -21,7 +21,7 @@ export class VendingComponent implements OnInit {
   updatedStantizedValue: any;
   soundOnSuccess: Howl;
   soundOnFailure: Howl;
-  HOST_NAME = 'http://localhost:4209';
+  HOST_NAME = 'http://w-event.akriya.co.in/';
 
   constructor(
     private route: ActivatedRoute,
