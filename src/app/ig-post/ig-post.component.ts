@@ -14,7 +14,7 @@ export class IgPostComponent implements OnInit {
 
   ngOnInit() {
     console.log('XXXXXXXXXXXXXXXXXXXX');
-    console.log(JSON.parse(this.ig_post));
+    // console.log(JSON.parse(this.ig_post));
   }
 
 }

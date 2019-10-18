@@ -13,6 +13,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { IgPostComponent } from './ig-post/ig-post.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { IgPostComponent } from './ig-post/ig-post.component';
     HandlefetchComponent,
     VendingComponent,
     FinalComponent,
-    IgPostComponent
+    IgPostComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
