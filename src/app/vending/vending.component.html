@@ -1,11 +1,13 @@
-<div style="width:100% ; text-align:center;" class="row">
+<div style="width:100% ; text-align:center; ;color:#fff" class="row bg-purple">
   <div class="container">
 
 
-    <div class="header-looking" (click)="specialClick()">
+    <h2 class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
-    </div>
-
+    </h2>
+    <h2 style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found">
+      Found you!
+    </h2>
     <div class="moving-staple">
       <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
         <svg xmlns="http://www.w3.org/2000/svg" width="287px" height="404px" viewBox="0 0 287 404" version="1.1">
@@ -19,8 +21,8 @@
           <g id="box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="box-content" transform="translate(-7.000000, -5.000000)">
               <g id="Group1" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#979797" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#4A4A4A">
+                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
+                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
                   <tspan x="18.9609375" y="27">1101010110010110001011111111001011001100</tspan>
                   <tspan x="18.9609375" y="42">1000011001000100110010000110010010001011</tspan>
                   <tspan x="18.9609375" y="57">1001101100111101101111100101000100010000</tspan>
@@ -50,8 +52,8 @@
                 <animate attributeName="opacity" values="0;1;0;0" dur="0.3s" repeatCount="indefinite" />
               </g>
               <g id="Group2" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#979797" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#A4A4A4">
+                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
+                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
                   <tspan x="18.9609375" y="27">111010100111010100110000100110110101000</tspan>
                   <tspan x="18.9609375" y="42">100100110101011001101101110010111101110</tspan>
                   <tspan x="18.9609375" y="57">110110001100110101110001110111011100100</tspan>
@@ -81,8 +83,8 @@
                 <animate attributeName="opacity" values="1;0;0;0" dur="0.3s" repeatCount="indefinite" />
               </g>
               <g id="Group3" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#979797" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#A4A4A4">
+                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
+                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
                   <tspan x="18.9609375" y="27">100011001010011100101000101001111100001</tspan>
                   <tspan x="18.9609375" y="42">100101011000110011011001101000000000100</tspan>
                   <tspan x="18.9609375" y="57">101111001000111011010000100101110101111</tspan>
@@ -112,8 +114,8 @@
                 <animate attributeName="opacity" values="0;0;1;0" dur="0.3s" repeatCount="indefinite" />
               </g>
               <g id="Group4" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#979797" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#A4A4A4">
+                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
+                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
                   <tspan x="18.9609375" y="27">100110001101111100000110100111110110000</tspan>
                   <tspan x="18.9609375" y="42">011010100101000000000100011010011110100</tspan>
                   <tspan x="18.9609375" y="57">000111111001101100010111100000011011010</tspan>
@@ -174,9 +176,7 @@
       <div *ngIf="state.search_status !== 'Found'  && state.search_status !== 'NotFound' " class="is-searching">
         Looking at all posts on Instagram with <b> #KhushiyonKaSeason </b>
       </div>
-      <div *ngIf="state.search_status === 'Found'" class="is-found">
-        Found you!
-      </div>
+     
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
         Already posted? Yet not able get your reward. Make sure profile is public
       </div>
