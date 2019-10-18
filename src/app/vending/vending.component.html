@@ -3,7 +3,7 @@
 
 
     <div class="header-looking" (click)="specialClick()">
-      Looking for posts by @{{state.instagram_username}}
+      Looking for posts by <b> @{{state.instagram_username}} </b>
     </div>
 
     <div class="moving-staple">
@@ -172,7 +172,7 @@
 
     <div class="looking-message">
       <div *ngIf="state.search_status !== 'Found'  && state.search_status !== 'NotFound' " class="is-searching">
-        Looking at all posts on Instagram with #KhushiyonKaSeason
+        Looking at all posts on Instagram with <b> #KhushiyonKaSeason </b>
       </div>
       <div *ngIf="state.search_status === 'Found'" class="is-found">
         Found you!
