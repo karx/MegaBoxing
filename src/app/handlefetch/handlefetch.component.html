@@ -1,23 +1,23 @@
 
-<div style="width:100% ; text-align:center;" class="row">
+<div style="width:100% ;height:100%; overflow:hidden; color:#fff ;text-align:center;background-color: #6e57a5" class="row">
   <div class="col-lg-12 col-md-12 ml-auto mr-auto">
     <div>
       <form  method="" action="">
-          <h2 class="card-title" style="letter-spacing:2px;word-spacing:5px">
+          <h2 class="card-title" style="letter-spacing:2px;word-spacing:5px;">
             Enter your public instagram profile's username.</h2>
-        <p class="description text-center">Note: Private accounts won't work.</p>
+        <p class=" text-center" >Note: Private accounts won't work.</p>
         <div class="card-body mx-lg-2 mx-md-2" style="margin-top:100px">
             <input type="text" [(ngModel)]="handle" [ngModelOptions]="{standalone: true}"
               class="form-control my-auto" style="border-width:0; background-color:#fff" placeholder="Eg. DollWithAGun"
               disabled>
-              <a (click)="kaaroFunction(handle)" class='btn btn-danger btn-wd submit-button'>Submit <span style="font-size:30px"> &rarr; </span></a>
+              <a (click)="kaaroFunction(handle)" class='btn btn-danger btn-wd submit-button' style="background-color:#faed22 !important">Submit <span style="font-size:30px"> &rarr; </span></a>
           </div>
         <div class="simple-keyboard"></div>
       </form>
     </div>
     <div class="text-center">
-      <span style="font-size:24px">&#x2190;
-        <a routerLink="/" style="font-size:18px; border-bottom:1px solid #555; color:#555"> Go Back</a>
+      <span style="font-size:24px;">&#x2190;
+        <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
       </span>
     </div>
   </div>
