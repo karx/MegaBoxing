@@ -2,12 +2,12 @@
   <div class="container">
 
 
-    <h2 class="header-looking" (click)="specialClick()">
+    <h2 *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
     </h2>
-    <h2 style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found">
-      Found you!
-    </h2>
+    <h1  style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
+      Found You!!!
+    </h1>
     <div class="moving-staple">
       <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
         <svg xmlns="http://www.w3.org/2000/svg" width="287px" height="404px" viewBox="0 0 287 404" version="1.1">
@@ -150,7 +150,7 @@
             <circle fill="#ffffff" cx="47" cy="47" r="20" opacity="0.2" />
             <path
               d="M77.5 69.3l-6.2-6.2c-0.7-0.7-1.3-1.2-1.9-1.6 2.6-4 4.1-8.8 4.1-14 0-14.4-11.7-26.1-26.1-26.1S21.3 33.2 21.3 47.5 33 73.6 47.4 73.6c5.4 0 10.4-1.6 14.5-4.4 0.5 0.7 1.1 1.4 1.9 2.2l5.8 5.8c2.9 2.9 7.1 3.5 9.2 1.3C81 76.4 80.4 72.2 77.5 69.3zM47.4 66.2c-10.3 0-18.7-8.4-18.7-18.6s8.4-18.6 18.7-18.6 18.7 8.4 18.7 18.6S57.7 66.2 47.4 66.2z"
-              fill="#8c8c8c" />
+              fill="#fff" />
             <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" dur="3s"
               repeatCount="indefinite"
               values="0 0; 50 50; 150 5; 200 35; 15 60; 135 75; 150 100; 180 110; 165 140;45 165; 0 0"
@@ -165,9 +165,9 @@
           <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}" [ig_post]="state.ig_post"></app-ig-post>
       </div>
        <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        <!-- <img
-          src="{{state.image_to_show}}"
-          alt=""> -->
+        <img
+          src="sad.png"
+          alt="">
           <app-not-found></app-not-found>
       </div>
     </div>
@@ -178,7 +178,7 @@
       </div>
      
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        Already posted? Yet not able get your reward. Make sure profile is public
+        Already posted, yet not able get your reward? Please make sure profile is public!
       </div>
     </div>
     <div class="vending_status">
