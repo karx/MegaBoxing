@@ -59,6 +59,10 @@ export class VendingComponent implements OnInit {
         if (!instagramPost) {
           this.state["search_status"] = 'NotFound';
           this.soundOnFailure.play();
+        } else if (instagramPost["error"]) {
+          console.log(instagramPost["error"]);
+          this.state["search_status"] = 'NotFound';
+          this.soundOnFailure.play();
         } else {
           await this.showInstagramPost(instagramPost);
           console.log('This is after await this.showInstagramPost(instagramPost);');
