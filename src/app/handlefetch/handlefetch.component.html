@@ -1,26 +1,36 @@
-
-<div style="width:100% ;height:100%; overflow:hidden; color:#fff ;text-align:center;background-color: #6e57a5" class="row">
-  <div class="col-lg-12 col-md-12 ml-auto mr-auto">
-    <div>
-      <form  method="" action="">
-          <h2 class="card-title" style="letter-spacing:2px;word-spacing:5px;">
-            Enter Your Public Instagram Profile's Username.</h2>
-        <p class=" text-center" >Note: Private accounts won't work.</p>
-        <div class="card-body mx-lg-2 mx-md-2" style="margin-top:50px">
-            <input type="text" [(ngModel)]="handle" [ngModelOptions]="{standalone: true}"
-              class="form-control my-auto" style="border-width:0; background-color:#fff" placeholder="Type your username"
-              disabled>
-              <a (click)="kaaroFunction(handle)" class='btn btn-danger btn-wd submit-button' style="background-color:#faed22 !important;color:#6e57a5!important;">Submit <span style="font-size:30px"> &rarr; </span></a>
+<div>
+  <div style="text-align:left;">
+      <i style="font-size:24px;line-height:1" class="material-icons">keyboard_arrow_left</i>
+    <span routerLink="/" style="font-size:18px;line-height:1; text-align:left;border-bottom:1px solid #555;padding:0;margin:0"> How to get coupon ?</span>
+  </div>
+    <div style="width:100% ;height:100%; overflow:hidden; color:#fff ;text-align:center;background-color: #6e57a5;margin-top:0" class="row">
+    <div class="col-lg-12 col-md-12 ml-auto mr-auto">
+      <div>
+        <form  method="" action="">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 ml-auto mr-auto">
+              <h3 class="card-title" style="letter-spacing:2px;word-spacing:5px;">
+              Enter Your Public Instagram Profile's Username .</h3>
+            </div>
           </div>
-        <div class="simple-keyboard"></div>
-      </form>
-    </div>
-    <div class="text-center">
-      <span style="font-size:24px;">&#x2190;
-        <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
-      </span>
+          <p class=" text-center" >Note: Private accounts won't work.</p>
+          <div class="card-body mx-lg-2 mx-md-2">
+              <input type="text" [(ngModel)]="handle" [ngModelOptions]="{standalone: true}"
+                class="form-control my-auto" style="border-width:0;height:30px; background-color:#fff" placeholder="Type your username"
+                disabled>
+                <a (click)="kaaroFunction(handle)" class='btn btn-danger btn-wd submit-button' style="background-color:#faed22 !important;color:#6e57a5!important;">Submit <span style="font-size:30px"> &rarr; </span></a>
+            </div>
+          <div class="simple-keyboard"></div>
+        </form>
+      </div>
+      <div class="text-center">
+        <span style="font-size:24px;">&#x2190;
+          <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
+        </span>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- style="font-size:20px;font-weight:400; color:red;border:2px solid red;padding:10px 20px;border-radius:40px; display:inline-block" -->
+<!-- style="font-size:20px;font-weight:400; color:red;border:2px solid red
+;padding:10px 20px;border-radius:40px; display:inline-block" -->
