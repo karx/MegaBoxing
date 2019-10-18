@@ -21,8 +21,8 @@ export class VendingComponent implements OnInit {
   updatedStantizedValue: any;
   soundOnSuccess: Howl;
   soundOnFailure: Howl;
-  // HOST_NAME = 'https://w-event.akriya.co.in';
-  HOST_NAME = 'http://localhost:4209';
+  HOST_NAME = 'https://w-event.akriya.co.in';
+  // HOST_NAME = 'http://localhost:4209';
   click_timer: any;
   clicks = 0;
   click_timeout = 350;
