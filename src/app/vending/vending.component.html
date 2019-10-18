@@ -2,10 +2,10 @@
   <div class="container">
 
 
-    <h2 *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
+    <h2 (click)="specialClick()" *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
     </h2>
-    <h1  style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
+    <h1  routerLink="/" (click)="specialClick()" style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
       Found You!!!
     </h1>
     <div class="moving-staple">
