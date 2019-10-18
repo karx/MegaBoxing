@@ -34,7 +34,5 @@
 
 .my-auto::placeholder{
   font-size: 30px;
-  font-weight: 800;
-  text-align: center;
-  margin-top: -10px;
+  transform: translateY(-20%);
 }

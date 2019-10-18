@@ -12,6 +12,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { IgPostComponent } from './ig-post/ig-post.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeComponent,
     HandlefetchComponent,
     VendingComponent,
-    FinalComponent
+    FinalComponent,
+    IgPostComponent
   ],
   imports: [
     BrowserModule,

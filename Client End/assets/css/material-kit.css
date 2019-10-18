@@ -9661,6 +9661,14 @@ button:focus {
   box-shadow: none;
 }
 
+.btn-border {
+  border:1px solid #000
+}
+
+.btn-black {
+  color:black
+}
+
 .btn.btn-link:hover,
 .btn.btn-link:focus,
 .btn.btn-link:active {
