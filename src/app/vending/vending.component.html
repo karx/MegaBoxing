@@ -2,10 +2,12 @@
   <div class="container">
 
 
-    <div class="header-looking" (click)="specialClick()">
+    <h2 class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
-    </div>
-
+    </h2>
+    <h2 style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found">
+      Found you!
+    </h2>
     <div class="moving-staple">
       <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
         <svg xmlns="http://www.w3.org/2000/svg" width="287px" height="404px" viewBox="0 0 287 404" version="1.1">
@@ -174,9 +176,7 @@
       <div *ngIf="state.search_status !== 'Found'  && state.search_status !== 'NotFound' " class="is-searching">
         Looking at all posts on Instagram with <b> #KhushiyonKaSeason </b>
       </div>
-      <div *ngIf="state.search_status === 'Found'" class="is-found">
-        Found you!
-      </div>
+     
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
         Already posted? Yet not able get your reward. Make sure profile is public
       </div>
