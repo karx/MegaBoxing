@@ -21,8 +21,8 @@ export class VendingComponent implements OnInit {
   updatedStantizedValue: any;
   soundOnSuccess: Howl;
   soundOnFailure: Howl;
-  HOST_NAME = 'https://w-event.akriya.co.in';
-  // HOST_NAME = 'http://localhost:4209';
+  // HOST_NAME = 'https://w-event.akriya.co.in';
+  HOST_NAME = 'http://localhost:4209';
   click_timer: any;
   clicks = 0;
   click_timeout = 350;
@@ -59,6 +59,8 @@ export class VendingComponent implements OnInit {
         if (!instagramPost) {
           this.state["search_status"] = 'NotFound';
           this.soundOnFailure.play();
+        } else if (instagramPost["error"]) {
+          console.log(instagramPost["error"]);
         } else {
           await this.showInstagramPost(instagramPost);
           console.log('This is after await this.showInstagramPost(instagramPost);');
