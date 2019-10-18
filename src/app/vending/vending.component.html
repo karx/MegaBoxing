@@ -2,7 +2,7 @@
   <div class="container">
 
 
-    <h2 class="header-looking" (click)="specialClick()">
+    <h2 *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
     </h2>
     <h2 style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found">
@@ -165,9 +165,9 @@
           <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}" [ig_post]="state.ig_post"></app-ig-post>
       </div>
        <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        <!-- <img
-          src="{{state.image_to_show}}"
-          alt=""> -->
+        <img
+          src="sad.png"
+          alt="">
           <app-not-found></app-not-found>
       </div>
     </div>
@@ -178,7 +178,7 @@
       </div>
      
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        Already posted? Yet not able get your reward. Make sure profile is public
+        Already posted, yet not able get your reward? Please make sure profile is public!
       </div>
     </div>
     <div class="vending_status">
