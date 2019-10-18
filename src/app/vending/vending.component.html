@@ -2,10 +2,10 @@
   <div class="container">
 
 
-    <h2 *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
+    <h2 (click)="specialClick()" *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
       Looking for posts by <b> @{{state.instagram_username}} </b>
     </h2>
-    <h1  style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
+    <h1  routerLink="/" (click)="specialClick()" style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
       Found You!!!
     </h1>
     <div class="moving-staple">
@@ -163,7 +163,12 @@
           src="{{state.image_to_show}}"
           alt=""> -->
           <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}" [ig_post]="state.ig_post"></app-ig-post>
-      </div>
+          <div class="text-center">
+            <span style="font-size:24px;">&#x2190;
+              <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
+            </span>
+          </div>
+        </div>
        <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
         <img
           src="sad.png"
@@ -185,10 +190,13 @@
       <div class="placeholder" *ngIf="!state.vend_status"></div>
       <div class="vending" *ngIf="state.vend_status === 'Vending'">
         Vending in progress
+       
+    
       </div>
       <div class="vend-done" *ngIf="state.vend_status === 'Complete'">
         Enjoy!
       </div>
+    
 
     </div>
   </div>
