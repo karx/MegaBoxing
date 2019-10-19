@@ -174,7 +174,7 @@ export class VendingComponent implements OnInit {
           
         }, this.click_timeout);
       }
-                                      }
+
       tripleClick() {
         this.whenMasterSaysNo = true;
       }
