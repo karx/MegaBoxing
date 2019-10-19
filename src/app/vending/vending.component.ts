@@ -169,7 +169,7 @@ export class VendingComponent implements OnInit {
           }
           if (this.clicks == 3) {
             this.tripleClick();
-          
+          }
           this.clicks = 0;
           
         }, this.click_timeout);
@@ -181,4 +181,4 @@ export class VendingComponent implements OnInit {
         quadClick() {
         this.router.navigateByUrl('/push');
       }
-      }
+    }
