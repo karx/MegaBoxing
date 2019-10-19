@@ -105,7 +105,7 @@ export class HandlefetchComponent implements OnInit {
   };
 
   public kaaroFunction(handle) {
-    console.log("Kasdkatjskdasd");
+    console.log("going to vending");
     // alert("Kartik");
     this.soundWhenWeStartLoading.play();
     this.router.navigate(['vend', this.value]);

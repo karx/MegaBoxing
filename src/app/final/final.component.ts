@@ -18,7 +18,7 @@ export class FinalComponent implements OnInit {
     );
   }
   navigateNext() {
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/push');
   }
 
 }
