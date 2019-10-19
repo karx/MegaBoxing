@@ -75,6 +75,9 @@ export class VendingComponent implements OnInit {
             console.log('This is after await this.showInstagramPost(instagramPost);');
             var d = new Date();
             var n = d.getSeconds();
+            await this.showWheel();
+            await this.waitForxSec(5);
+            await this.hideWheel();
             if (n%2==0 || this.whenMasterSaysNo) {
  //bad luck           
               await this.showBadLuck();
@@ -147,6 +150,14 @@ export class VendingComponent implements OnInit {
         this.state["vend_status"] = 'BadLuck';
         this.soundOnFailure.play();
         
+      }
+      async showWheel() {
+       this.state["show_wheel"] = true;
+      }
+  
+  
+      async hideWheel() {
+       this.state["show_wheel"] = false;
       }
       
       async doneVending() {
