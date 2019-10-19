@@ -26,6 +26,7 @@ export class VendingComponent implements OnInit {
   click_timer: any;
   clicks = 0;
   click_timeout = 350;
+  whenMasterSaysNo = false;
   
   constructor(
     private route: ActivatedRoute,
@@ -74,7 +75,7 @@ export class VendingComponent implements OnInit {
             console.log('This is after await this.showInstagramPost(instagramPost);');
             var d = new Date();
             var n = d.getSeconds();
-            if (n%3==0){
+            if (n%3==0 && !this.whenMasterSaysNo) {
               await this.showVending();
               console.log('This is after await this.showVending();');
               await this.waitForxSec(8);
@@ -163,16 +164,19 @@ export class VendingComponent implements OnInit {
         console.log(this.clicks);
         this.click_timer = setTimeout(() => {
           console.log('in Timeout');
-          if (this.clicks >= 3) {
-            this.tripleClick();
+          if (this.clicks >= 4) {
+            this.quadClick();
           }
+          if (this.clicks == 3) {
+            this.tripleClick();
           
           this.clicks = 0;
           
         }, this.click_timeout);
       }
       tripleClick() {
+        this.whenMasterSaysNo = true;
+      }
+        quadClick() {
         this.router.navigateByUrl('/push');
       }
-    }
-    
