@@ -1,206 +1,234 @@
-<div style="width:100% ; text-align:center; ;color:#fff" class="row bg-purple">
+<div style="width:100% ; text-align:center;align-items: center ;color:#fff" class="row bg-purple">
+
+
   <div class="container">
 
+    <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
+      <h2 class="header-looking" (click)="specialClick()">
+        Looking for posts by <b> @{{state.instagram_username}}</b> with <b> #KhushiyonKaSeason </b>
 
-    <h2 (click)="specialClick()" *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="header-looking" (click)="specialClick()">
-      Looking for posts by <b> @{{state.instagram_username}} </b>
-    </h2>
-    <h1  routerLink="/" (click)="specialClick()" style="font-weight: 800;" *ngIf="state.search_status === 'Found'" class="is-found animation-image">
-      Found You!!!
-    </h1>
-    <div class="moving-staple">
-      <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
-        <svg xmlns="http://www.w3.org/2000/svg" width="287px" height="404px" viewBox="0 0 287 404" version="1.1">
-          <defs>
-            <rect id="path-1" x="0" y="0" width="287" height="404" />
-            <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="287"
-              height="404" fill="white">
-              <use />
-            </mask>
-          </defs>
-          <g id="box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="box-content" transform="translate(-7.000000, -5.000000)">
-              <g id="Group1" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
-                  <tspan x="18.9609375" y="27">1101010110010110001011111111001011001100</tspan>
-                  <tspan x="18.9609375" y="42">1000011001000100110010000110010010001011</tspan>
-                  <tspan x="18.9609375" y="57">1001101100111101101111100101000100010000</tspan>
-                  <tspan x="18.9609375" y="72">1001000111110001100110010111110101000101</tspan>
-                  <tspan x="18.9609375" y="87">1110111110001011110000111100110111001100</tspan>
-                  <tspan x="18.9609375" y="102">0001001100101101101111101100111001010001</tspan>
-                  <tspan x="18.9609375" y="117">0011000110111100111111110001010010101010</tspan>
-                  <tspan x="18.9609375" y="132">0000111010011010011001111010100110101111</tspan>
-                  <tspan x="18.9609375" y="147">0010101011000110110110011001001000100011</tspan>
-                  <tspan x="18.9609375" y="162">1001010110101000101011100110111001110000</tspan>
-                  <tspan x="18.9609375" y="177">0111111011001000010101111011010101011110</tspan>
-                  <tspan x="18.9609375" y="192">1010000100110010100101111100101011100100</tspan>
-                  <tspan x="18.9609375" y="207">0000011100001000011011000000101011111101</tspan>
-                  <tspan x="18.9609375" y="222">0100110001101101001100000000111111111111</tspan>
-                  <tspan x="18.9609375" y="237">0111110111110011111100011001001010000001</tspan>
-                  <tspan x="18.9609375" y="252">0111010100010000111111100001001010001111</tspan>
-                  <tspan x="18.9609375" y="267">1011110001101001110100001010101111000001</tspan>
-                  <tspan x="18.9609375" y="282">1010110110000110100001100001111111100001</tspan>
-                  <tspan x="18.9609375" y="297">1010111111011111100001100101111000111010</tspan>
-                  <tspan x="18.9609375" y="312">0111011011111110011100111000010001101100</tspan>
-                  <tspan x="18.9609375" y="327">0101011000011001010101111000011011101010</tspan>
-                  <tspan x="18.9609375" y="342">1010011010010000001100011010111100010110</tspan>
-                  <tspan x="18.9609375" y="357">1010100100001011001001101100001010010011</tspan>
-                  <tspan x="18.9609375" y="372">0110000010000101011100101110010001110101</tspan>
-                  <tspan x="18.9609375" y="387">1101111011010100111000101111001101000001</tspan>
-                </text>
-                <animate attributeName="opacity" values="0;1;0;0" dur="0.3s" repeatCount="indefinite" />
-              </g>
-              <g id="Group2" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
-                  <tspan x="18.9609375" y="27">111010100111010100110000100110110101000</tspan>
-                  <tspan x="18.9609375" y="42">100100110101011001101101110010111101110</tspan>
-                  <tspan x="18.9609375" y="57">110110001100110101110001110111011100100</tspan>
-                  <tspan x="18.9609375" y="72">101000010101110110001100100110101011001</tspan>
-                  <tspan x="18.9609375" y="87">110011011100110000110011101001001010010</tspan>
-                  <tspan x="18.9609375" y="102">001010001011011011010001111111100000111</tspan>
-                  <tspan x="18.9609375" y="117">011101100001111100001101110111010011100</tspan>
-                  <tspan x="18.9609375" y="132">001100000000111000000110000001000011111</tspan>
-                  <tspan x="18.9609375" y="147">111010001111001111011101101001000101010</tspan>
-                  <tspan x="18.9609375" y="162">101010011011110100000011101111100011100</tspan>
-                  <tspan x="18.9609375" y="177">000101011000101010011001010000111101110</tspan>
-                  <tspan x="18.9609375" y="192">101000110101000111010111100110001001011</tspan>
-                  <tspan x="18.9609375" y="207">0100110001101101001100000000111111111111</tspan>
-                  <tspan x="18.9609375" y="222">0000011100001000011011000000101011111101</tspan>
-                  <tspan x="18.9609375" y="237">0111010100010000111111100001001010001111</tspan>
-                  <tspan x="18.9609375" y="252">0111110111110011111100011001001010000001</tspan>
-                  <tspan x="18.9609375" y="267">1010110110000110100001100001111111100001</tspan>
-                  <tspan x="18.9609375" y="282">1011110001101001110100001010101111000001</tspan>
-                  <tspan x="18.9609375" y="297">0111011011111110011100111000010001101100</tspan>
-                  <tspan x="18.9609375" y="312">1010111111011111100001100101111000111010</tspan>
-                  <tspan x="18.9609375" y="327">0101011000011001010101111000011011101010</tspan>
-                  <tspan x="18.9609375" y="342">1010011010010000001100011010111100010110</tspan>
-                  <tspan x="18.9609375" y="357">1101111011010100111000101111001101000001</tspan>
-                  <tspan x="18.9609375" y="372">1010100100001011001001101100001010010011</tspan>
-                  <tspan x="18.9609375" y="387">0110000010000101011100101110010001110101</tspan>
-                </text>
-                <animate attributeName="opacity" values="1;0;0;0" dur="0.3s" repeatCount="indefinite" />
-              </g>
-              <g id="Group3" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
-                  <tspan x="18.9609375" y="27">100011001010011100101000101001111100001</tspan>
-                  <tspan x="18.9609375" y="42">100101011000110011011001101000000000100</tspan>
-                  <tspan x="18.9609375" y="57">101111001000111011010000100101110101111</tspan>
-                  <tspan x="18.9609375" y="72">111001110101101110001110010101111100000</tspan>
-                  <tspan x="18.9609375" y="87">101000011111111010000101011011101101000</tspan>
-                  <tspan x="18.9609375" y="102">011000111110001101101110111001110110101</tspan>
-                  <tspan x="18.9609375" y="117">011101010100010010010011100110000011100</tspan>
-                  <tspan x="18.9609375" y="132">000010110010110011000010100111101100000</tspan>
-                  <tspan x="18.9609375" y="147">101100100110111111100011011011100101001</tspan>
-                  <tspan x="18.9609375" y="162">110010101111010001010100111101011011110</tspan>
-                  <tspan x="18.9609375" y="177">001101101011011100100110010010100001000</tspan>
-                  <tspan x="18.9609375" y="192">101110000001111101100000011011011111001</tspan>
-                  <tspan x="18.9609375" y="207">101001001001000010101001100101100100000</tspan>
-                  <tspan x="18.9609375" y="222">110000110000100111001100010101101100100</tspan>
-                  <tspan x="18.9609375" y="237">010000000101101101110010100110100000001</tspan>
-                  <tspan x="18.9609375" y="252">111110101011111001111110000111001110101</tspan>
-                  <tspan x="18.9609375" y="267">000100111001111000011100010011101010001</tspan>
-                  <tspan x="18.9609375" y="282">111111010101101111110100011111011001111</tspan>
-                  <tspan x="18.9609375" y="297">111101110101010000101111000111011110011</tspan>
-                  <tspan x="18.9609375" y="312">001110100101100101001110011001010101001</tspan>
-                  <tspan x="18.9609375" y="327">100101111001100110110101010110001110010</tspan>
-                  <tspan x="18.9609375" y="342">010100010001100011110100010000010001101</tspan>
-                  <tspan x="18.9609375" y="357">001000001100000000011011110110011100001</tspan>
-                  <tspan x="18.9609375" y="372">001100100010000011100011111111100010010</tspan>
-                  <tspan x="18.9609375" y="387">011100110100101111011110001100000111110</tspan>
-                </text>
-                <animate attributeName="opacity" values="0;0;1;0" dur="0.3s" repeatCount="indefinite" />
-              </g>
-              <g id="Group4" transform="translate(7.000000, 5.000000)">
-                <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text
-                  id="11010101100101100010" font-family="monospace" font-size="11" font-weight="400" fill="#fff">
-                  <tspan x="18.9609375" y="27">100110001101111100000110100111110110000</tspan>
-                  <tspan x="18.9609375" y="42">011010100101000000000100011010011110100</tspan>
-                  <tspan x="18.9609375" y="57">000111111001101100010111100000011011010</tspan>
-                  <tspan x="18.9609375" y="72">111110001010001100011100110000001011000</tspan>
-                  <tspan x="18.9609375" y="87">110100010001101001111111101010011110101</tspan>
-                  <tspan x="18.9609375" y="102">001101000001000101100100100001110011111</tspan>
-                  <tspan x="18.9609375" y="117">111001001110011101000001011011101001101</tspan>
-                  <tspan x="18.9609375" y="132">011011111100101000001011101010001011110</tspan>
-                  <tspan x="18.9609375" y="147">010101100010011001101010110010100001100</tspan>
-                  <tspan x="18.9609375" y="162">000110100111001010111110010001111111001</tspan>
-                  <tspan x="18.9609375" y="177">110010100111010000111101110111101010000</tspan>
-                  <tspan x="18.9609375" y="192">111011010010000011111100001110000001010</tspan>
-                  <tspan x="18.9609375" y="207">110000110010111111101000100011010111000</tspan>
-                  <tspan x="18.9609375" y="222">000010101011101010110100110110110111100</tspan>
-                  <tspan x="18.9609375" y="237">110010001000001100100100001010101101100</tspan>
-                  <tspan x="18.9609375" y="252">001001000111011010100001101010001110011</tspan>
-                  <tspan x="18.9609375" y="267">000111001111010000010001101001000000010</tspan>
-                  <tspan x="18.9609375" y="282">011010101011010110111011100111110110110</tspan>
-                  <tspan x="18.9609375" y="297">010001110011111000010110001111010111001</tspan>
-                  <tspan x="18.9609375" y="312">111111010100110011010001010011001101101</tspan>
-                  <tspan x="18.9609375" y="327">010101101101100100011011101101100001000</tspan>
-                  <tspan x="18.9609375" y="342">011101101100110001100011000111010001000</tspan>
-                  <tspan x="18.9609375" y="357">000000001001000101000001111111000011111</tspan>
-                  <tspan x="18.9609375" y="372">101110101000110111010110010000111011110</tspan>
-                  <tspan x="18.9609375" y="387">011111101111000101111001111110101101011</tspan>
-                </text>
-                <animate attributeName="opacity" values="0;0;0;1" dur="0.3s" repeatCount="indefinite" />
-              </g>
+      </h2>
+
+
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="287px" height="404px" viewBox="0 0 287 404" version="1.1">
+        <defs>
+          <rect id="path-1" x="0" y="0" width="287" height="404" />
+          <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="287"
+            height="404" fill="white">
+            <use />
+          </mask>
+        </defs>
+        <g id="box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="box-content" transform="translate(-7.000000, -5.000000)">
+            <g id="Group1" transform="translate(7.000000, 5.000000)">
+              <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text id="11010101100101100010"
+                font-family="monospace" font-size="11" font-weight="400" fill="#fff">
+                <tspan x="18.9609375" y="27">1101010110010110001011111111001011001100</tspan>
+                <tspan x="18.9609375" y="42">1000011001000100110010000110010010001011</tspan>
+                <tspan x="18.9609375" y="57">1001101100111101101111100101000100010000</tspan>
+                <tspan x="18.9609375" y="72">1001000111110001100110010111110101000101</tspan>
+                <tspan x="18.9609375" y="87">1110111110001011110000111100110111001100</tspan>
+                <tspan x="18.9609375" y="102">0001001100101101101111101100111001010001</tspan>
+                <tspan x="18.9609375" y="117">0011000110111100111111110001010010101010</tspan>
+                <tspan x="18.9609375" y="132">0000111010011010011001111010100110101111</tspan>
+                <tspan x="18.9609375" y="147">0010101011000110110110011001001000100011</tspan>
+                <tspan x="18.9609375" y="162">1001010110101000101011100110111001110000</tspan>
+                <tspan x="18.9609375" y="177">0111111011001000010101111011010101011110</tspan>
+                <tspan x="18.9609375" y="192">1010000100110010100101111100101011100100</tspan>
+                <tspan x="18.9609375" y="207">0000011100001000011011000000101011111101</tspan>
+                <tspan x="18.9609375" y="222">0100110001101101001100000000111111111111</tspan>
+                <tspan x="18.9609375" y="237">0111110111110011111100011001001010000001</tspan>
+                <tspan x="18.9609375" y="252">0111010100010000111111100001001010001111</tspan>
+                <tspan x="18.9609375" y="267">1011110001101001110100001010101111000001</tspan>
+                <tspan x="18.9609375" y="282">1010110110000110100001100001111111100001</tspan>
+                <tspan x="18.9609375" y="297">1010111111011111100001100101111000111010</tspan>
+                <tspan x="18.9609375" y="312">0111011011111110011100111000010001101100</tspan>
+                <tspan x="18.9609375" y="327">0101011000011001010101111000011011101010</tspan>
+                <tspan x="18.9609375" y="342">1010011010010000001100011010111100010110</tspan>
+                <tspan x="18.9609375" y="357">1010100100001011001001101100001010010011</tspan>
+                <tspan x="18.9609375" y="372">0110000010000101011100101110010001110101</tspan>
+                <tspan x="18.9609375" y="387">1101111011010100111000101111001101000001</tspan>
+              </text>
+              <animate attributeName="opacity" values="0;1;0;0" dur="0.3s" repeatCount="indefinite" />
+            </g>
+            <g id="Group2" transform="translate(7.000000, 5.000000)">
+              <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text id="11010101100101100010"
+                font-family="monospace" font-size="11" font-weight="400" fill="#fff">
+                <tspan x="18.9609375" y="27">111010100111010100110000100110110101000</tspan>
+                <tspan x="18.9609375" y="42">100100110101011001101101110010111101110</tspan>
+                <tspan x="18.9609375" y="57">110110001100110101110001110111011100100</tspan>
+                <tspan x="18.9609375" y="72">101000010101110110001100100110101011001</tspan>
+                <tspan x="18.9609375" y="87">110011011100110000110011101001001010010</tspan>
+                <tspan x="18.9609375" y="102">001010001011011011010001111111100000111</tspan>
+                <tspan x="18.9609375" y="117">011101100001111100001101110111010011100</tspan>
+                <tspan x="18.9609375" y="132">001100000000111000000110000001000011111</tspan>
+                <tspan x="18.9609375" y="147">111010001111001111011101101001000101010</tspan>
+                <tspan x="18.9609375" y="162">101010011011110100000011101111100011100</tspan>
+                <tspan x="18.9609375" y="177">000101011000101010011001010000111101110</tspan>
+                <tspan x="18.9609375" y="192">101000110101000111010111100110001001011</tspan>
+                <tspan x="18.9609375" y="207">0100110001101101001100000000111111111111</tspan>
+                <tspan x="18.9609375" y="222">0000011100001000011011000000101011111101</tspan>
+                <tspan x="18.9609375" y="237">0111010100010000111111100001001010001111</tspan>
+                <tspan x="18.9609375" y="252">0111110111110011111100011001001010000001</tspan>
+                <tspan x="18.9609375" y="267">1010110110000110100001100001111111100001</tspan>
+                <tspan x="18.9609375" y="282">1011110001101001110100001010101111000001</tspan>
+                <tspan x="18.9609375" y="297">0111011011111110011100111000010001101100</tspan>
+                <tspan x="18.9609375" y="312">1010111111011111100001100101111000111010</tspan>
+                <tspan x="18.9609375" y="327">0101011000011001010101111000011011101010</tspan>
+                <tspan x="18.9609375" y="342">1010011010010000001100011010111100010110</tspan>
+                <tspan x="18.9609375" y="357">1101111011010100111000101111001101000001</tspan>
+                <tspan x="18.9609375" y="372">1010100100001011001001101100001010010011</tspan>
+                <tspan x="18.9609375" y="387">0110000010000101011100101110010001110101</tspan>
+              </text>
+              <animate attributeName="opacity" values="1;0;0;0" dur="0.3s" repeatCount="indefinite" />
+            </g>
+            <g id="Group3" transform="translate(7.000000, 5.000000)">
+              <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text id="11010101100101100010"
+                font-family="monospace" font-size="11" font-weight="400" fill="#fff">
+                <tspan x="18.9609375" y="27">100011001010011100101000101001111100001</tspan>
+                <tspan x="18.9609375" y="42">100101011000110011011001101000000000100</tspan>
+                <tspan x="18.9609375" y="57">101111001000111011010000100101110101111</tspan>
+                <tspan x="18.9609375" y="72">111001110101101110001110010101111100000</tspan>
+                <tspan x="18.9609375" y="87">101000011111111010000101011011101101000</tspan>
+                <tspan x="18.9609375" y="102">011000111110001101101110111001110110101</tspan>
+                <tspan x="18.9609375" y="117">011101010100010010010011100110000011100</tspan>
+                <tspan x="18.9609375" y="132">000010110010110011000010100111101100000</tspan>
+                <tspan x="18.9609375" y="147">101100100110111111100011011011100101001</tspan>
+                <tspan x="18.9609375" y="162">110010101111010001010100111101011011110</tspan>
+                <tspan x="18.9609375" y="177">001101101011011100100110010010100001000</tspan>
+                <tspan x="18.9609375" y="192">101110000001111101100000011011011111001</tspan>
+                <tspan x="18.9609375" y="207">101001001001000010101001100101100100000</tspan>
+                <tspan x="18.9609375" y="222">110000110000100111001100010101101100100</tspan>
+                <tspan x="18.9609375" y="237">010000000101101101110010100110100000001</tspan>
+                <tspan x="18.9609375" y="252">111110101011111001111110000111001110101</tspan>
+                <tspan x="18.9609375" y="267">000100111001111000011100010011101010001</tspan>
+                <tspan x="18.9609375" y="282">111111010101101111110100011111011001111</tspan>
+                <tspan x="18.9609375" y="297">111101110101010000101111000111011110011</tspan>
+                <tspan x="18.9609375" y="312">001110100101100101001110011001010101001</tspan>
+                <tspan x="18.9609375" y="327">100101111001100110110101010110001110010</tspan>
+                <tspan x="18.9609375" y="342">010100010001100011110100010000010001101</tspan>
+                <tspan x="18.9609375" y="357">001000001100000000011011110110011100001</tspan>
+                <tspan x="18.9609375" y="372">001100100010000011100011111111100010010</tspan>
+                <tspan x="18.9609375" y="387">011100110100101111011110001100000111110</tspan>
+              </text>
+              <animate attributeName="opacity" values="0;0;1;0" dur="0.3s" repeatCount="indefinite" />
+            </g>
+            <g id="Group4" transform="translate(7.000000, 5.000000)">
+              <use id="Rectangle-2" stroke="#fff" mask="url(#mask-2)" stroke-width="2" /><text id="11010101100101100010"
+                font-family="monospace" font-size="11" font-weight="400" fill="#fff">
+                <tspan x="18.9609375" y="27">100110001101111100000110100111110110000</tspan>
+                <tspan x="18.9609375" y="42">011010100101000000000100011010011110100</tspan>
+                <tspan x="18.9609375" y="57">000111111001101100010111100000011011010</tspan>
+                <tspan x="18.9609375" y="72">111110001010001100011100110000001011000</tspan>
+                <tspan x="18.9609375" y="87">110100010001101001111111101010011110101</tspan>
+                <tspan x="18.9609375" y="102">001101000001000101100100100001110011111</tspan>
+                <tspan x="18.9609375" y="117">111001001110011101000001011011101001101</tspan>
+                <tspan x="18.9609375" y="132">011011111100101000001011101010001011110</tspan>
+                <tspan x="18.9609375" y="147">010101100010011001101010110010100001100</tspan>
+                <tspan x="18.9609375" y="162">000110100111001010111110010001111111001</tspan>
+                <tspan x="18.9609375" y="177">110010100111010000111101110111101010000</tspan>
+                <tspan x="18.9609375" y="192">111011010010000011111100001110000001010</tspan>
+                <tspan x="18.9609375" y="207">110000110010111111101000100011010111000</tspan>
+                <tspan x="18.9609375" y="222">000010101011101010110100110110110111100</tspan>
+                <tspan x="18.9609375" y="237">110010001000001100100100001010101101100</tspan>
+                <tspan x="18.9609375" y="252">001001000111011010100001101010001110011</tspan>
+                <tspan x="18.9609375" y="267">000111001111010000010001101001000000010</tspan>
+                <tspan x="18.9609375" y="282">011010101011010110111011100111110110110</tspan>
+                <tspan x="18.9609375" y="297">010001110011111000010110001111010111001</tspan>
+                <tspan x="18.9609375" y="312">111111010100110011010001010011001101101</tspan>
+                <tspan x="18.9609375" y="327">010101101101100100011011101101100001000</tspan>
+                <tspan x="18.9609375" y="342">011101101100110001100011000111010001000</tspan>
+                <tspan x="18.9609375" y="357">000000001001000101000001111111000011111</tspan>
+                <tspan x="18.9609375" y="372">101110101000110111010110010000111011110</tspan>
+                <tspan x="18.9609375" y="387">011111101111000101111001111110101101011</tspan>
+              </text>
+              <animate attributeName="opacity" values="0;0;0;1" dur="0.3s" repeatCount="indefinite" />
             </g>
           </g>
-          <g>
-            <circle fill="#ffffff" cx="47" cy="47" r="20" opacity="0.2" />
-            <path
-              d="M77.5 69.3l-6.2-6.2c-0.7-0.7-1.3-1.2-1.9-1.6 2.6-4 4.1-8.8 4.1-14 0-14.4-11.7-26.1-26.1-26.1S21.3 33.2 21.3 47.5 33 73.6 47.4 73.6c5.4 0 10.4-1.6 14.5-4.4 0.5 0.7 1.1 1.4 1.9 2.2l5.8 5.8c2.9 2.9 7.1 3.5 9.2 1.3C81 76.4 80.4 72.2 77.5 69.3zM47.4 66.2c-10.3 0-18.7-8.4-18.7-18.6s8.4-18.6 18.7-18.6 18.7 8.4 18.7 18.6S57.7 66.2 47.4 66.2z"
-              fill="#fff" />
-            <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" dur="3s"
-              repeatCount="indefinite"
-              values="0 0; 50 50; 150 5; 200 35; 15 60; 135 75; 150 100; 180 110; 165 140;45 165; 0 0"
-              keyTimes="0;0.10;0.20;0.30;0.40;0.50;0.60;0.70;0.80;0.90;1" />
-          </g>
-        </svg>
-      </div>
-      <div *ngIf="state.search_status === 'Found'" class="is-found">
-        <!-- <img
-          src="{{state.image_to_show}}"
-          alt=""> -->
-          <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}" [ig_post]="state.ig_post"></app-ig-post>
-          <div class="text-center">
-            <span style="font-size:24px;">&#x2190;
-              <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
-            </span>
-          </div>
-        </div>
-       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        <img
-          src="sad.png"
-          alt="">
-          <app-not-found></app-not-found>
-      </div>
+        </g>
+        <g>
+          <circle fill="#ffffff" cx="47" cy="47" r="20" opacity="0.2" />
+          <path
+            d="M77.5 69.3l-6.2-6.2c-0.7-0.7-1.3-1.2-1.9-1.6 2.6-4 4.1-8.8 4.1-14 0-14.4-11.7-26.1-26.1-26.1S21.3 33.2 21.3 47.5 33 73.6 47.4 73.6c5.4 0 10.4-1.6 14.5-4.4 0.5 0.7 1.1 1.4 1.9 2.2l5.8 5.8c2.9 2.9 7.1 3.5 9.2 1.3C81 76.4 80.4 72.2 77.5 69.3zM47.4 66.2c-10.3 0-18.7-8.4-18.7-18.6s8.4-18.6 18.7-18.6 18.7 8.4 18.7 18.6S57.7 66.2 47.4 66.2z"
+            fill="#fff" />
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="0 0" dur="3s"
+            repeatCount="indefinite"
+            values="0 0; 50 50; 150 5; 200 35; 15 60; 135 75; 150 100; 180 110; 165 140;45 165; 0 0"
+            keyTimes="0;0.10;0.20;0.30;0.40;0.50;0.60;0.70;0.80;0.90;1" />
+        </g>
+      </svg>
     </div>
+
 
     <div class="looking-message">
       <div *ngIf="state.search_status !== 'Found'  && state.search_status !== 'NotFound' " class="is-searching">
         Looking at all posts on Instagram with <b> #KhushiyonKaSeason </b>
       </div>
-     
+    </div>
+
+
+
+    <h1 *ngIf="state.search_status === 'Found'" routerLink="/" (click)="specialClick()" style="font-weight: 800;"
+      class="is-found animation-image">
+      Found You!!!
+    </h1>
+    <div class="moving-staple">
+
+      <div *ngIf="state.search_status === 'Found'" class="is-found">
+        <!-- <img
+      src="{{state.image_to_show}}"
+      alt=""> -->
+        <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}"
+          [ig_post]="state.ig_post"></app-ig-post>
+        <div class="text-center">
+          <span style="font-size:24px;">&#x2190;
+            <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
+          </span>
+        </div>
+      </div>
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        Already posted, yet not able get your reward? Please make sure profile is public!
+        <img src="sad.png" alt="">
+        <h2 *ngIf="state.old === true" style="font-weight: 800" class="animation-image"> Sorry, you can only use the
+          machine once per day! </h2>
+
+
+        <div *ngIf="state.old !== true">
+          <h1 style="font-weight:800" class="msg msg_1 animation-image">Post Not Found!</h1>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
+          <img routerLink="/push" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c4b9.png"
+            style="max-width:40%" />
+          <a routerLink="/push" class='btn btn-danger btn-wd submit-button'
+            style="background-color:#faed22 !important;border-radius:50px;width:auto;color:#6e57a5!important;padding:30px;">
+            Start again ?</a>
+        </div>
+        <h4 *ngIf="state.old !== true">Already posted, yet not able get your reward? <br />Please make sure profile is
+          public!
+        </h4>
       </div>
     </div>
+
     <div class="vending_status">
       <div class="placeholder" *ngIf="!state.vend_status"></div>
       <div class="vending" *ngIf="state.vend_status === 'Vending'">
         Vending in progress
-       
-    
+
+
       </div>
+      <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
+        Bad luck you did not win.
+
+      </div>
+
       <div class="vend-done" *ngIf="state.vend_status === 'Complete'">
         Enjoy!
       </div>
-    
+
 
     </div>
   </div>
-  <!-- <div class="container">
+  <div class="container">
     <div class="row" *ngIf="vendStatus === 'Success'">
       <div class="col-lg-5 col-md-5 ml-auto mr-auto">
         <div class="card" [innerHTML]="updatedStantizedValue">
@@ -219,20 +247,17 @@
     <div class="row" *ngIf="vendStatus === 'Fail'">
       <div class="col-lg-8 col-md-8 ml-auto mr-auto">
         <div>
-          <img class = "mx-auto d-block" src="./assets/img/main-logo.png">
+          <img class="mx-auto d-block" src="./assets/img/main-logo.png">
 
           <h1 class="info-title mx-auto text-center">UH OH!<br>NO POSTS FOUND WITH THAT USERNAME</h1>
           <h3 class="text-center">You are being redirected, Please Wait...</h3>
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="vendStatus === 'Loading'">
-      <div class="col-lg-12 col-md-12 ml-auto mr-auto">
-        <h1>
-          Looking for @Lakshit1001 with #khusioKaSeason
-        </h1>
-        <img src="https://media1.tenor.com/images/3a0c9909b542717ce9f651d07c4d4592/tenor.gif?itemid=8985245"/>
-      </div>
-    </div>
-  </div> -->
+  </div>
+  <div class="calculating-prize row" >
+    <h1>Calculating Your Prize!</h1>
+    <img src="../../assets/img/wheel_share.jpg" id ="wheel-fortune"/>
+  </div>
+
 </div>
