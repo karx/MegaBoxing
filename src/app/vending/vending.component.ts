@@ -165,7 +165,7 @@ export class VendingComponent implements OnInit {
         this.click_timer = setTimeout(() => {
           console.log('in Timeout');
           if (this.clicks >= 4) {
-            this.quadClick();
+           this.quadClick();
           }
           if (this.clicks == 3) {
             this.tripleClick();
@@ -174,9 +174,11 @@ export class VendingComponent implements OnInit {
           
         }, this.click_timeout);
       }
+                                      }
       tripleClick() {
         this.whenMasterSaysNo = true;
       }
         quadClick() {
         this.router.navigateByUrl('/push');
+      }
       }
