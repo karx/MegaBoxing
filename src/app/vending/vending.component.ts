@@ -74,7 +74,7 @@ export class VendingComponent implements OnInit {
             console.log('This is after await this.showInstagramPost(instagramPost);');
             var d = new Date();
             var n = d.getSeconds();
-            if (n%2==0){
+            if (n%3==0){
               await this.showVending();
               console.log('This is after await this.showVending();');
               await this.waitForxSec(8);
