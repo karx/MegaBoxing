@@ -75,17 +75,20 @@ export class VendingComponent implements OnInit {
             console.log('This is after await this.showInstagramPost(instagramPost);');
             var d = new Date();
             var n = d.getSeconds();
-            if (n%3==0 && !this.whenMasterSaysNo) {
-              await this.showVending();
+            if (n%2==0 || this.whenMasterSaysNo) {
+ //bad luck           
+              await this.showBadLuck();
+              console.log('This is after await this.showBadLuck();');
+
+            }else{
+              
+              //good luck
+                await this.showVending();
               console.log('This is after await this.showVending();');
               await this.waitForxSec(8);
               console.log('This is after await this.waitForxSec(8);');
               await this.doneVending();
               console.log('This is after await this.doneVending();');
-            }else{
-              await this.showBadLuck();
-              console.log('This is after await this.showBadLuck();');
-
             }
             
             
