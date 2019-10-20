@@ -52,6 +52,7 @@ export class VendingComponent implements OnInit {
           console.log(val);
           this.whenMasterSaysNo = val.whenManSaysNo;
           this.winPercentage = val.seedNumber;
+          // this.state["show_wheel"] = val.show_wheel;
         });
     }
 
@@ -83,7 +84,7 @@ export class VendingComponent implements OnInit {
             var d = new Date();
             var n = d.getMilliseconds();
             var cent = n%100;
-
+            await this.waitForxSec(1.2);
             await this.showWheel();
             await this.waitForxSec(5);
             await this.hideWheel();
@@ -179,7 +180,7 @@ export class VendingComponent implements OnInit {
       }
 
       navigateNext() {
-        this.router.navigateByUrl('/push');
+        // this.router.navigateByUrl('/push');
       }
 
       specialClick() {
