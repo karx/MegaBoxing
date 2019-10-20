@@ -28,6 +28,7 @@ export class VendingComponent implements OnInit {
   click_timeout = 350;
   whenMasterSaysNo = false;
   winPercentage = 0;
+  config;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -44,10 +45,16 @@ export class VendingComponent implements OnInit {
         src: ['../../assets/sounds/GameFailure.wav'],
         html5: true
       });
-      
-      
+
+      db.doc('dlf-config/config').valueChanges()
+        .subscribe((val: any) => {
+          console.log('config');
+          console.log(val);
+          this.whenMasterSaysNo = val.whenManSaysNo;
+          this.winPercentage = val.seedNumber;
+        });
     }
-    
+
     ngOnInit() {
       this.route.params.pipe(
         filter(params => params.handle)
@@ -56,7 +63,7 @@ export class VendingComponent implements OnInit {
           this.state["instagram_username"] = params.handle;
           let instagramPost = await this.checkForInstagramUser(params.handle);
           console.log('This is after let instagramPost = await this.checkForInstagramUser(params.handle);');
-          
+
           if (!instagramPost) {
             this.state["search_status"] = 'NotFound';
             this.soundOnFailure.play();
@@ -68,7 +75,7 @@ export class VendingComponent implements OnInit {
               console.log("old is true");
               this.state["old"] = true;
             }
-            
+
             this.soundOnFailure.play();
           } else {
             await this.showInstagramPost(instagramPost);
@@ -82,12 +89,12 @@ export class VendingComponent implements OnInit {
             await this.hideWheel();
 
             if ((100 - cent >  this.winPercentage || this.whenMasterSaysNo)) {
- //bad luck           
+ //bad luck
               await this.showBadLuck();
               console.log('This is after await this.showBadLuck();');
 
             }else{
-              
+
               //good luck
                 await this.showVending();
               console.log('This is after await this.showVending();');
@@ -96,25 +103,25 @@ export class VendingComponent implements OnInit {
               await this.doneVending();
               console.log('This is after await this.doneVending();');
             }
-            
-            
-            
+
+
+
           }
           await this.waitForxSec(20);
           console.log('This is after await this.waitForxSec(20);');
           await this.navigateNext();
           console.log('This is after await this.navigateNext();');
-          
+
         });
       }
-      
+
       async checkForInstagramUser(instagramUserName: string) {
         // TODO: Expose our IG - crawl API
         // Will send InstagramUserName.
         console.log('Before data');
-        
+
         console.log('sending for ', instagramUserName);
-        
+
         let reqURL = `${this.HOST_NAME}/checkForInstagramUser/${instagramUserName}`;
         const response = await this.http.get(reqURL).toPromise();
         console.log('response: ', response);
@@ -127,34 +134,34 @@ export class VendingComponent implements OnInit {
         this.state["image_to_show"] = instagramPost.display_url;
         this.state["search_status"] = 'Found';
         this.soundOnSuccess.play();
-        
-        
+
+
         return null;
       }
-      
+
       async waitForxSec(sec) {
         const ms = sec * 1000;
         return new Promise(resolve => setTimeout(resolve, ms));
       }
-      
+
       async showVending() {
         // TODO: Expose our Vending - API
         // Will send Nothing.
         let response = await fetch(`${this.HOST_NAME}/doVending`);
         // let data = await response.json();
-        
+
         this.state["vend_status"] = 'Vending';
         this.soundOnSuccess.play();
-        
+
       }
 
       async showBadLuck() {
-     
+
         this.state["vend_status"] = 'BadLuck';
         this.soundOnFailure.play();
-        
+
       }
-      
+
 
       async showWheel() {
         this.state["show_wheel"] = true;
@@ -166,17 +173,17 @@ export class VendingComponent implements OnInit {
 
       async doneVending() {
         this.state["vend_status"] = 'Complete';
-        
+
         this.soundOnSuccess.play(); // bye bye sound
-        
+
       }
-      
+
       navigateNext() {
         this.router.navigateByUrl('/push');
       }
-      
+
       specialClick() {
-        
+
         clearTimeout(this.click_timer);
         this.clicks++;
         console.log(this.clicks);
@@ -189,7 +196,7 @@ export class VendingComponent implements OnInit {
             this.tripleClick();
           }
           this.clicks = 0;
-          
+
         }, this.click_timeout);
       }
 
