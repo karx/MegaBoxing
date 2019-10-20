@@ -188,11 +188,9 @@
         </div>
       </div>
       <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        <img src="sad.png" alt="">
+        <!-- <img src="sad.png" alt=""> -->
         <h2 *ngIf="state.old === true" style="font-weight: 800" class="animation-image"> Sorry, you can only use the
-          machine once per day! </h2>
-
-
+          machine once per user! </h2>
         <div *ngIf="state.old !== true">
           <h1 style="font-weight:800" class="msg msg_1 animation-image">Post Not Found!</h1>
         </div>
@@ -210,15 +208,16 @@
     </div>
 
     <div class="vending_status">
+        <div class="calculating-prize row"  *ngIf="!!state.show_wheel">
+            <h1>Calculating Your Prize!</h1>
+            <img src="../../assets/img/wheel_share.jpg" id ="wheel-fortune"/>
+          </div>
       <div class="placeholder" *ngIf="!state.vend_status"></div>
       <div class="vending" *ngIf="state.vend_status === 'Vending'">
-        Vending in progress
-
-
+          <h3> <i>Congratulations! </i> Vending in progress </h3>
       </div>
       <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
-        Bad luck you did not win. Thank you sharing in #KhushiyonKaSeason
-
+        <h3><b>>Bad luck </b> you did not win. Thank you sharing in #KhushiyonKaSeason </h3>
       </div>
 
       <div class="vend-done" *ngIf="state.vend_status === 'Complete'">
@@ -254,10 +253,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="calculating-prize row" >
-    <h1>Calculating Your Prize!</h1>
-    <img src="../../assets/img/wheel_share.jpg" id ="wheel-fortune"/>
   </div>
 
 </div>
