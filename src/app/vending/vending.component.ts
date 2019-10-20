@@ -98,16 +98,16 @@ export class VendingComponent implements OnInit {
             //good luck
             let tryVend = await this.showVending();
             console.log(tryVend);
-            if (tryVend && tryVend.errorCode === '-1') {
+            if (tryVend && tryVend.errorCode !== '0') {
               await this.hideWheel();
               await this.showBadLuck(true);
             } else {
-            await this.hideWheel();
-            console.log('This is after await this.showVending();');
-            await this.waitForxSec(8);
-            console.log('This is after await this.waitForxSec(8);');
-            await this.doneVending();
-            console.log('This is after await this.doneVending();');
+              await this.hideWheel();
+              console.log('This is after await this.showVending();');
+              await this.waitForxSec(8);
+              console.log('This is after await this.waitForxSec(8);');
+              await this.doneVending();
+              console.log('This is after await this.doneVending();');
             }
 
           }
@@ -163,7 +163,7 @@ export class VendingComponent implements OnInit {
     let response;
     this.state["vends_were_timedOut"] = false;
     try {
-      response = await this.fetchTimeout(`${this.HOST_NAME}/doVending`, 300);
+      response = await this.fetchTimeout(`${this.HOST_NAME}/doVending`, 3000);
     } catch (e) {
       console.log(e);
       response = {
@@ -173,11 +173,23 @@ export class VendingComponent implements OnInit {
       return response;
     }
 
-    console.log(response);
+    const vent_status = await response.json();
+    if (vent_status.key === "overflow") {
+      response = {
+        error: 'Overflow is On',
+        errorCode: '-2'
+      };
+      return response;
+    }
     // let data = await response.json();
 
     this.state["vend_status"] = 'Vending';
     this.soundOnSuccess.play();
+    response = {
+        success: `Vend on Row ${vent_status.key}`,
+        errorCode: '0'
+      };
+    return response;
 
   }
 
