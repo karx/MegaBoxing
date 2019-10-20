@@ -27,7 +27,7 @@ export class VendingComponent implements OnInit {
   clicks = 0;
   click_timeout = 350;
   whenMasterSaysNo = false;
-  
+  winPercentage = 100;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -63,7 +63,7 @@ export class VendingComponent implements OnInit {
           } else if (instagramPost["error"]) {
             console.log(instagramPost["error"]);
             this.state["search_status"] = 'NotFound';
-            if(instagramPost["error"]=="Old")
+            if(instagramPost["error"]=="Repeat User")
             {
               console.log("old is true");
               this.state["old"] = true;
@@ -74,8 +74,14 @@ export class VendingComponent implements OnInit {
             await this.showInstagramPost(instagramPost);
             console.log('This is after await this.showInstagramPost(instagramPost);');
             var d = new Date();
-            var n = d.getSeconds();
-            if ((n%2==0 || this.whenMasterSaysNo) && false) {
+            var n = d.getMilliseconds();
+            var cent = n%100;
+
+            await this.showWheel();
+            await this.waitForxSec(5);
+            await this.hideWheel();
+
+            if ((100 - cent >  this.winPercentage || this.whenMasterSaysNo)) {
  //bad luck           
               await this.showBadLuck();
               console.log('This is after await this.showBadLuck();');
@@ -149,6 +155,15 @@ export class VendingComponent implements OnInit {
         
       }
       
+
+      async showWheel() {
+        this.state["show_wheel"] = true;
+      }
+
+      async hideWheel() {
+        this.state["show_wheel"] = false;
+      }
+
       async doneVending() {
         this.state["vend_status"] = 'Complete';
         
