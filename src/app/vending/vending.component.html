@@ -158,54 +158,50 @@
             keyTimes="0;0.10;0.20;0.30;0.40;0.50;0.60;0.70;0.80;0.90;1" />
         </g>
       </svg>
-    </div>
 
-
-    <div class="looking-message">
-      <div *ngIf="state.search_status !== 'Found'  && state.search_status !== 'NotFound' " class="is-searching">
+      <div class="looking-message">
         Looking at all posts on Instagram with <b> #KhushiyonKaSeason </b>
       </div>
+
     </div>
 
+    <div class="isFoundDiv" *ngIf="state.search_status === 'Found'">
+      <h1 routerLink="/" (click)="specialClick()" style="font-weight: 800;" class="is-found animation-image">
+        Found You!!!
+      </h1>
+      <div class="moving-staple">
 
+        <div class="is-found">
+          <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}"
+            [ig_post]="state.ig_post"></app-ig-post>
+          <div class="text-center">
+            <span style="font-size:24px;">&#x2190;
+              <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
+            </span>
+          </div>
+        </div>
 
-    <h1 *ngIf="state.search_status === 'Found'" routerLink="/" (click)="specialClick()" style="font-weight: 800;"
-      class="is-found animation-image">
-      Found You!!!
-    </h1>
-    <div class="moving-staple">
-
-      <div *ngIf="state.search_status === 'Found'" class="is-found">
-        <!-- <img
-      src="{{state.image_to_show}}"
-      alt=""> -->
-        <app-ig-post image_to_show="{{state.image_to_show}}" username="{{state.instagram_username}}"
-          [ig_post]="state.ig_post"></app-ig-post>
-        <div class="text-center">
-          <span style="font-size:24px;">&#x2190;
-            <span routerLink="/" style="font-size:18px; border-bottom:1px solid #555;"> Go Back</span>
-          </span>
-        </div>
-      </div>
-      <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
-        <!-- <img src="sad.png" alt=""> -->
-        <h2 *ngIf="state.old === true" style="font-weight: 800" class="animation-image"> Sorry, you can only use the
-          machine once per user! </h2>
-        <div *ngIf="state.old !== true">
-          <h1 style="font-weight:800" class="msg msg_1 animation-image">Post Not Found!</h1>
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
-          <img routerLink="/push" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c4b9.png"
-            style="max-width:40%" />
-          <a routerLink="/push" class='btn btn-danger btn-wd submit-button'
-            style="background-color:#faed22 !important;border-radius:50px;width:auto;color:#6e57a5!important;padding:30px;">
-            Start again ?</a>
-        </div>
-        <h4 *ngIf="state.old !== true">Already posted, yet not able get your reward? <br />Please make sure profile is
-          public!
-        </h4>
       </div>
     </div>
+
+    <div *ngIf="state.search_status === 'NotFound'" class="is-not-found">
+      <!-- <img src="sad.png" alt=""> -->
+      <h2 *ngIf="state.old === true" style="font-weight: 800" class="animation-image"> Sorry, you can only use the
+        machine once per user! </h2>
+      <div *ngIf="state.old !== true">
+        <h1 style="font-weight:800" class="msg msg_1 animation-image">Post Not Found!</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
+        <img routerLink="/push" src="../../assets/img/sad_smile.png" style="max-width:40%" />
+        <a routerLink="/push" class='btn btn-danger btn-wd submit-button'
+          style="background-color:#faed22 !important;border-radius:50px;width:auto;color:#6e57a5!important;padding:30px;">
+          Start again ?</a>
+      </div>
+      <h4 *ngIf="state.old !== true">Already posted, yet not able get your reward? <br />Please make sure profile is
+        public!
+      </h4>
+    </div>
+
 
     <div class="vending_status">
       <div class="calculating-prize row" *ngIf="!!state.show_wheel">
@@ -217,7 +213,7 @@
         <h3> <i>Congratulations! </i> Vending in progress </h3>
       </div>
       <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
-        <h3><b>Hard luck </b> you did not win. Thank you sharing this #KhushiyonKaSeason in DLF </h3>
+        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #KhushiyonKaSeason in DLF </h3>
       </div>
 
       <div class="vend-done" *ngIf="state.vend_status === 'Complete'">
@@ -227,32 +223,3 @@
 
     </div>
   </div>
-  <div class="container">
-    <div class="row" *ngIf="vendStatus === 'Success'">
-      <div class="col-lg-5 col-md-5 ml-auto mr-auto">
-        <div class="card" [innerHTML]="updatedStantizedValue">
-
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-        <div class="info">
-          <img class="d-block" src="./assets/img/main-logo.png">
-          <h1 class="info-title">CONGRATULATIONS!</h1>
-          <h3>Please collect your gift from the machine.</h3>
-        </div>
-      </div>
-
-    </div>
-    <div class="row" *ngIf="vendStatus === 'Fail'">
-      <div class="col-lg-8 col-md-8 ml-auto mr-auto">
-        <div>
-          <img class="mx-auto d-block" src="./assets/img/main-logo.png">
-
-          <h1 class="info-title mx-auto text-center">UH OH!<br>NO POSTS FOUND WITH THAT USERNAME</h1>
-          <h3 class="text-center">You are being redirected, Please Wait...</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
