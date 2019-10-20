@@ -204,7 +204,6 @@
 
     <div class="vending_status">
       <div class="calculating-prize row" *ngIf="!!state.show_wheel">
-
         <img src="../../assets/img/wheel_share.jpg" id="wheel-fortune" />
       </div>
       <div class="placeholder" *ngIf="!state.vend_status"></div>
@@ -212,13 +211,15 @@
         <h3> <i>Congratulations! </i> Vending in progress </h3>
       </div>
       <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
-        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #KhushiyonKaSeason in DLF </h3>
+        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #KhushiyonKaSeason in DLF</h3>
+        <div class="ifTimedOUt" *ngIf="!!state.vends_were_timedOut">
+          😕
+        </div>
       </div>
 
       <div class="vend-done" *ngIf="state.vend_status === 'Complete'">
         Please collect your gift from the machine.
       </div>
-
 
     </div>
   </div>
