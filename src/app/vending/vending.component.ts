@@ -27,7 +27,7 @@ export class VendingComponent implements OnInit {
   clicks = 0;
   click_timeout = 350;
   whenMasterSaysNo = false;
-  winPercentage = 70;
+  winPercentage = 30;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
