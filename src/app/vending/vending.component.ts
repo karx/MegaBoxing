@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -35,6 +36,7 @@ export class VendingComponent implements OnInit {
     private db: AngularFirestore,
     private http: HttpClient,
     private sanitized: DomSanitizer
+    // private printerService: NgxPrinterService
   ) {
     this.ig_data = '';
     this.soundOnSuccess = new Howl({
@@ -112,8 +114,6 @@ export class VendingComponent implements OnInit {
 
           }
 
-
-
         }
 
 
@@ -131,8 +131,8 @@ export class VendingComponent implements OnInit {
     const response = await this.http.get(reqURL).toPromise();
     console.log('response: ', response);
     return Promise.resolve(response);
-    // return 'https://scontent-sin6-2.cdninstagram.com/vp/3517a42cd10e55e469fc29792568fb12/5E2AC507/t51.2885-15/e35/73385855_164852961264075_7057780052067614563_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=103';
   }
+
   async showInstagramPost(instagramPost) {
     console.log(instagramPost);
     this.state["ig_post"] = instagramPost || 'null post';
@@ -163,7 +163,8 @@ export class VendingComponent implements OnInit {
     let response;
     this.state["vends_were_timedOut"] = false;
     try {
-      response = await this.fetchTimeout(`${this.HOST_NAME}/doVending`, 3000);
+      response = 'Success';
+      // response = await this.fetchTimeout(`${this.HOST_NAME}/doVending`, 3000);
     } catch (e) {
       console.log(e);
       response = {

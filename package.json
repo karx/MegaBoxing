@@ -24,6 +24,8 @@
     "ansi-colors": "^4.1.1",
     "firebase": "^6.6.2",
     "howler": "^2.1.2",
+    "ngx-print": "^1.2.0-beta.3",
+    "ngx-printer": "^0.2.0",
     "rxjs": "~6.4.0",
     "simple-keyboard": "^2.26.13",
     "tslib": "^1.10.0",

@@ -9,7 +9,7 @@ import { FinalComponent } from './final/final.component';
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent
+    component: HandlefetchComponent
   },
   {
     path: 'push',

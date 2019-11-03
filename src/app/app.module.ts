@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { IgPostComponent } from './ig-post/ig-post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPrintModule
   ],
   providers: [],
   bootstrap: [AppComponent]
