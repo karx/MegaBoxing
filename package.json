@@ -1,6 +1,6 @@
 {
-  "name": "angular-megaboxing",
-  "version": "0.0.0",
+  "name": "Wendor-Events",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
