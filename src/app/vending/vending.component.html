@@ -5,7 +5,7 @@
 
     <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
       <h2 class="header-looking" (click)="specialClick()">
-        Looking for posts by <b> @{{state.instagram_username}}</b> with <b> #FashionAbElle </b>
+        Looking for posts by <b> @{{state.instagram_username}}</b> with <b> #BeFashionAbElle </b>
 
       </h2>
 
@@ -160,7 +160,7 @@
       </svg>
 
       <div class="looking-message">
-        Looking at all posts on Instagram with <b> #FashionAbElle </b>
+        Looking at all posts on Instagram with <b> #BeFashionAbElle </b>
       </div>
 
     </div>
@@ -211,7 +211,7 @@
         <h3> <i>Congratulations! </i> Vending in progress </h3>
       </div>
       <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
-        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #FashionAbElle in DLF</h3>
+        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #BeFashionAbElle in DLF</h3>
         <div class="ifTimedOUt" *ngIf="!!state.vends_were_timedOut">
           😕
         </div>
