@@ -5,7 +5,6 @@ import { filter } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Howl } from 'howler';
-import { resolve } from 'dns';
 
 
 @Component({
