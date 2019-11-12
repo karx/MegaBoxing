@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Howl } from 'howler';
+import { resolve } from 'dns';
 
 
 @Component({
@@ -129,6 +130,7 @@ export class VendingComponent implements OnInit {
 
     let reqURL = `${this.HOST_NAME}/checkForInstagramUser/${instagramUserName}`;
     const response = await this.http.get(reqURL).toPromise();
+
     console.log('response: ', response);
     return Promise.resolve(response);
     // return 'https://scontent-sin6-2.cdninstagram.com/vp/3517a42cd10e55e469fc29792568fb12/5E2AC507/t51.2885-15/e35/73385855_164852961264075_7057780052067614563_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=103';
@@ -155,6 +157,11 @@ export class VendingComponent implements OnInit {
         .then(resolve, reject)
       setTimeout(reject, timeout);
     });
+  }
+  async showFail() {
+    const reqURL = `${this.HOST_NAME}/showFail`;
+    const response = await this.http.get(reqURL).toPromise();
+    console.log(response);
   }
 
   async showVending() {
@@ -194,7 +201,7 @@ export class VendingComponent implements OnInit {
   }
 
   async showBadLuck(ifImportant = false) {
-
+    this.showFail();
     this.state["vend_status"] = 'BadLuck';
     if (ifImportant) {
       this.state["vends_were_timedOut"] = true;
