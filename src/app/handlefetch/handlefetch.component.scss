@@ -1,51 +1,70 @@
 @import '../../../node_modules/simple-keyboard/build/css/index';
+@import url(//db.onlinewebfonts.com/c/f99da0cc089925103ee1ecbcf5758240?family=Bodoni+SvtyTwo+ITC+TT);
+
+@font-face {
+  font-family: "Bodoni SvtyTwo ITC TT";
+  src: url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.eot");
+  src: url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.woff") format("woff"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.svg#Bodoni SvtyTwo ITC TT") format("svg");
+}
+
+.card-title {
+  font-family: 'Bodoni SvtyTwo ITC TT';
+}
+
 .simple-keyboard {
   z-index: 1000;
   bottom: 50px;
-  position:fixed;
+  position: fixed;
 
 }
-.simple-keyboard.hg-theme-default .hg-button{
+
+.simple-keyboard.hg-theme-default .hg-button {
   font-weight: 900;
   font-size: 1.7em;
-  height:70px;
+  height: 70px;
   color: #555;
-  margin:4px;
+  margin: 4px;
 }
-.my-auto{
+
+.my-auto {
   // border: solid 3px #666;
   border-radius: 50px;
   padding: 30px 30px;
   font-weight: 800;
   max-width: 80%;
-  float:left;
+  float: left;
   // font-size: 2em;
   text-align: center;
 }
+
 .my-auto::placeholder {
   line-height: 0% !important;
 }
-.submit-button{
+
+.submit-button {
   border-radius: 50px;
-  color:#fff !important;
+  color: #fff !important;
   padding: 7px 10px;
-   font-weight: 800;
-   font-size: 1.2em;
-   width : 18%;
-   text-align: center;
+  font-weight: 800;
+  font-size: 1.2em;
+  width: 18%;
+  text-align: center;
 }
 
-.my-auto::placeholder{
+.my-auto::placeholder {
   font-size: 30px;
   transform: translateY(-20%);
 }
 
 .info {
   min-height: 150px;
+
 }
+
 .row-2 {
   margin-top: 50px;
 }
+
 .step-icon {
   font-style: normal;
   font-size: 40px;
