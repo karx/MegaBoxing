@@ -15,7 +15,9 @@
   z-index: 1000;
   bottom: 50px;
   position: fixed;
-
+  // right: 20px;
+  align-self: center;
+  max-width: 95%;
 }
 
 .simple-keyboard.hg-theme-default .hg-button {
