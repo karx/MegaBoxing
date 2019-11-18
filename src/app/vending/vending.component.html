@@ -5,7 +5,7 @@
 
     <div *ngIf="state.search_status !== 'Found' && state.search_status !== 'NotFound'" class="is-searching">
       <h2 class="header-looking" (click)="specialClick()">
-        Looking for posts by <b> @{{state.instagram_username}}</b> with <b> #BeFashionAbElle </b>
+        Looking for posts by <b> @{{state.instagram_username}}</b> with <b> #91life </b>
 
       </h2>
 
@@ -160,7 +160,7 @@
       </svg>
 
       <div class="looking-message">
-        Looking at all posts on Instagram with <b> #BeFashionAbElle </b>
+        Looking at all posts on Instagram with <b> #91life </b>
       </div>
 
     </div>
@@ -194,7 +194,7 @@
       <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
         <img routerLink="/push" src="../../assets/img/sad_smile.png" style="max-width:40%" />
         <a routerLink="/push" class='btn btn-danger btn-wd submit-button'
-          style="background-color:#faed22 !important;border-radius:50px;width:auto;color:#321710!important;padding:30px;">
+          style="background-color:#faed22 !important;border-radius:50px;width:auto;color:#0b0b0b!important;padding:30px;">
           Start again ?</a>
       </div>
       <h4 *ngIf="state.old !== true">Already posted, yet not able get your reward? <br />Please make sure profile is
@@ -211,7 +211,7 @@
         <h3> <i>Congratulations! </i> Vending in progress </h3>
       </div>
       <div class="vending" *ngIf="state.vend_status === 'BadLuck'">
-        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #BeFashionAbElle in DLF</h3>
+        <h3><b>Oops, Hard luck</b> you did not win. Thank you sharing this #91life in DLF</h3>
         <div class="ifTimedOUt" *ngIf="!!state.vends_were_timedOut">
           😕
         </div>
